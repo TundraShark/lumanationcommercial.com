@@ -1,0 +1,141 @@
+// $--scrollbar-thumb: hsl(50, 100%, 40%);
+// $--scrollbar-track: hsl(51, 100%, 10%);
+
+$--scrollbar-thumb: #00a8e8;
+$--scrollbar-track: #2a3439;
+
+// $--scrollbar-thumb: #f5b301;
+// $--scrollbar-track: #2e3a59;
+
+// 1. Primary Colors:
+$--primary-1: #4b4b4b;
+$--primary-2: #2c2c2c;
+$--primary-3: #1c2a3e;
+$--primary-4: hsl(0 0% 90% / 1);
+
+// 2. Accent Colors:
+$--accent-1: #fa052b;
+$--accent-2: #ffc300;
+$--accent-3: #2ecc71;
+
+// 3. Neutral Colors:
+$--neutral-1: hsl(0, 0%, 90%);
+$--neutral-2: hsl(0, 0%, 95%);
+
+@font-face { font-family: "RobotoFlex"; src: url("/fonts/roboto-flex.ttf");}
+@font-face { font-family: "Oswald";     src: url("/fonts/oswald.ttf");}
+
+// Custom cursor notes
+// - The cursor image size must be 32x32 pixels
+// - Supported image file formats: .png and .svg (must contain a natural size)
+// - iPadOS supports pointer devices like trackpads and mice. By default, the iPad cursor is displayed as a circle, and the only supported value that will change an appearance of the pointer is text
+// - Cursor changes that intersect toolbar areas are commonly blocked to avoid spoofing
+
+// Styling Scrollbars in Chrome, Edge, and Safari
+*::-webkit-scrollbar       { width: 8px; /* Width of the entire scrollbar */ }
+*::-webkit-scrollbar-track { background: $--scrollbar-track; /* Color of the tracking area */ }
+*::-webkit-scrollbar-thumb {
+  border: 0;                            // Creates padding around scroll thumb
+  border-radius: 0;                     // Roundness of the scroll thumb
+  background-color: $--scrollbar-thumb; // Color of the scroll thumb
+}
+
+// Styling Scrollbars in Firefox
+* {
+  scrollbar-width: thin; // thin, none, or auto
+  scrollbar-color: $--scrollbar-thumb $--scrollbar-track; // Scroll thumb and track
+}
+
+body {
+  background-color: $--primary-4;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 3rem 1rem;
+
+  > .title {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: $--accent-1;
+    font-family: "Oswald";
+    font-size: 4rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0px 0px 5px hsl(350.69deg 96.08% 80%));
+  }
+}
+
+.section-2 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem 1rem;
+  background-color: hsl(200, 15%, 25%);
+  box-shadow: 0 0 10px 2px hsl(200, 15%, 25%);
+
+  > .title {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: $--accent-3;
+    font-family: "Oswald";
+    font-size: 4rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+}
+
+.section-carousel {
+  margin: 3rem 0;
+
+  > .title {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: $--accent-1;
+    font-family: "Oswald";
+    font-size: 4rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+}
+
+.f-carousel__nav {
+  .f-button {
+    transform: scale(1.75) translateY(-16px) !important;
+    &.is-prev { left: 20px !important; }
+    &.is-next { right: 20px !important; }
+    svg { stroke: $--accent-1; }
+  }
+}
+
+// .wrap { flex-wrap: wrap; }
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.button-1 {
+  display: flex;
+  background-color: hsl(200, 15%, 19%);
+  padding: 8px 16px;
+  border-radius: 16px;
+  color: #fff;
+  font-family: "RobotoFlex";
+  font-size: 2rem;
+  user-select: none;
+  border: 2px solid #fff;
+  margin-bottom: 16px;
+  cursor: pointer;
+
+  &:hover  { background-color: hsl(200, 15%, 28%); }
+  &:active { background-color: hsl(200, 15%, 15%); transform: translateY(1px); }
+}

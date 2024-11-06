@@ -1,0 +1,3 @@
+region: "us-east-1"
+s3Bucket: "dev.luma-nationcommercial.com"
+cloudFrontDistributionId: "undefined"
