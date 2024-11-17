@@ -614,55 +614,72 @@ $--neutral-2: hsl(0, 0%, 95%);
   width: 100%;
   height: 100%;
 
-  > .left {
-    display: flex;
-    align-items: center;
+  &.desktop {
+    > .left {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      min-width: calc(50% - 18px);
+      max-width: calc(50% - 18px);
+    }
+
+    > .right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-width: calc(50% - 18px);
+      max-width: calc(50% - 18px);
+    }
+
+    > .divider {
+      display: flex;
+      min-width: 4px;
+      max-width: 4px;
+      min-height: 90%;
+      margin: 8px 8px;
+      background-color: $--accent-3;
+      filter: drop-shadow(0px 0px 2px hsl(145.44deg 63.2% 59.02%));
+    }
+  }
+
+  &.mobile {
     flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    min-width: calc(50% - 18px);
-    max-width: calc(50% - 18px);
-  }
 
-  > .right {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-width: calc(50% - 18px);
-    max-width: calc(50% - 18px);
-  }
+    > .top {
+      margin-left: 16px;
+    }
 
-  > .title {
-    font-size: 5rem;
-    font-family: "Oswald";
-    letter-spacing: 4px;
-    color: $--accent-3;
-    filter: drop-shadow(0px 0px 2px hsl(145.44deg 63.2% 59.02%));
-  }
-
-  > .divider {
-    display: flex;
-    min-width: 4px;
-    max-width: 4px;
-    min-height: 90%;
-    margin: 8px 8px;
-    background-color: $--accent-3;
-    filter: drop-shadow(0px 0px 2px hsl(145.44deg 63.2% 59.02%));
+    > .divider {
+      display: flex;
+      min-width: calc(100% - 16px);
+      max-width: calc(100% - 16px);
+      min-height: 4px;
+      max-height: 4px;
+      margin: 8px 8px;
+      background-color: $--accent-3;
+      filter: drop-shadow(0px 0px 2px hsl(145.44deg 63.2% 59.02%));
+    }
   }
 
   .card {
     margin: 16px;
     padding: 8px;
-    // background-color: hsl(200 15% 26% / 1);
     border-radius: 16px;
-    // filter: drop-shadow(0 0 5px $--accent-3);
     font-size: 1.2rem;
     font-family: "RobotoFlex";
     line-height: 1.4;
-    // font-size: 1.1em;
     color: #E0E0E0;
-    margin-bottom: 32px;
+  }
+
+  .title {
+    font-size: 5rem;
+    font-family: "Oswald";
+    letter-spacing: 4px;
+    color: $--accent-3;
+    filter: drop-shadow(0px 0px 2px hsl(145.44deg 63.2% 59.02%));
   }
 }
 
@@ -731,103 +748,55 @@ $--neutral-2: hsl(0, 0%, 95%);
 }
 
 .team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   font-family: "Oswald";
   max-width: 1400px;
 
   > .client {
+    display: flex;
+    flex-direction: column;
     background-color: $--primary-3;
     color: $--neutral-1;
     border: 2px solid $--accent-2;
+    max-width: 400px;
     margin: 0.5rem;
     padding: 1rem;
     border-radius: 0.5rem;
     box-shadow: 0px 4px 8px 2px rgb(0 0 0 / 30%);
-  }
-}
 
-@media only screen and (min-width: 500px) {
-  .team-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    > .client {
+    > .portrait-container {
       display: flex;
-      align-items: center;
-      width: 400px;
+      justify-content: center;
 
-      > .portrait-container {
-        > img {
-          width: 133px;
-          height: 133px;
-          border-radius: 50%;
-          object-fit: cover;
-          border: 2px solid silver;
-        }
-      }
-
-      > .text-container {
-        display: flex;
-        flex-direction: column;
-        // width: 2100px;
-
-        > .name {
-          display: flex;
-          margin: 8px;
-          text-align: center;
-          font-size: 1.5rem;
-          font-weight: bold;
-        }
-
-        > .bio {
-          display: flex;
-          // text-align: center;
-          padding: 0 16px 16px 16px;
-          // font-size: 0.8rem;
-        }
+      > img {
+        width: 133px;
+        height: 133px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid silver;
       }
     }
-  }
-}
 
-@media only screen and (max-width: 500px) {
-  .team-container {
-    display: flex;
-    flex-wrap: wrap;
-
-    > .client {
+    > .text-container {
       display: flex;
+      align-items: center;
       flex-direction: column;
 
-      > .portrait-container {
-        > img {
-          width: 133px;
-          height: 133px;
-          border-radius: 50%;
-          object-fit: cover;
-          border: 2px solid silver;
-        }
+      > .name {
+        display: flex;
+        margin: 8px;
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: bold;
       }
 
-      > .text-container {
+      > .bio {
         display: flex;
-        align-items: center;
-        flex-direction: column;
-
-        > .name {
-          display: flex;
-          margin: 8px;
-          text-align: center;
-          font-size: 1.5rem;
-          font-weight: bold;
-        }
-
-        > .bio {
-          display: flex;
-          text-align: center;
-          padding: 0 16px 16px 16px;
-          // font-size: 0.8rem;
-        }
+        text-align: center;
+        padding: 0 16px 16px 16px;
+        font-size: 1.2rem;
       }
     }
   }
