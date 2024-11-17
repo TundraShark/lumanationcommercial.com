@@ -71,90 +71,90 @@ export class Lumanation extends cdk.Stack {
 
     // DynamoDB
 
-    const dynamoDevTableName  = "Lumanation-dynamo-dev";
-    const dynamoProdTableName = "Lumanation-dynamo-prod";
+    // const dynamoDevTableName  = "Lumanation-dynamo-dev";
+    // const dynamoProdTableName = "Lumanation-dynamo-prod";
 
-    const dynamoDev = new ddb.Table(this, dynamoDevTableName, {
-      tableName: dynamoDevTableName,
-      billingMode: BillingMode.PAY_PER_REQUEST,
-      tableClass: TableClass.STANDARD_INFREQUENT_ACCESS,
-      partitionKey: {
-        name: "type",
-        type: AttributeType.STRING
-      },
-      sortKey: {
-        name: "emailAddress",
-        type: AttributeType.STRING
-      }
-    });
+    // const dynamoDev = new ddb.Table(this, dynamoDevTableName, {
+    //   tableName: dynamoDevTableName,
+    //   billingMode: BillingMode.PAY_PER_REQUEST,
+    //   tableClass: TableClass.STANDARD_INFREQUENT_ACCESS,
+    //   partitionKey: {
+    //     name: "type",
+    //     type: AttributeType.STRING
+    //   },
+    //   sortKey: {
+    //     name: "emailAddress",
+    //     type: AttributeType.STRING
+    //   }
+    // });
 
-    const dynamoProd = new ddb.Table(this, dynamoProdTableName, {
-      tableName: dynamoProdTableName,
-      billingMode: BillingMode.PAY_PER_REQUEST,
-      tableClass: TableClass.STANDARD_INFREQUENT_ACCESS,
-      partitionKey: {
-        name: "type",
-        type: AttributeType.STRING
-      },
-      sortKey: {
-        name: "emailAddress",
-        type: AttributeType.STRING
-      }
-    });
+    // const dynamoProd = new ddb.Table(this, dynamoProdTableName, {
+    //   tableName: dynamoProdTableName,
+    //   billingMode: BillingMode.PAY_PER_REQUEST,
+    //   tableClass: TableClass.STANDARD_INFREQUENT_ACCESS,
+    //   partitionKey: {
+    //     name: "type",
+    //     type: AttributeType.STRING
+    //   },
+    //   sortKey: {
+    //     name: "emailAddress",
+    //     type: AttributeType.STRING
+    //   }
+    // });
 
     // IAM Role
 
-    const iamRoleLambdaDev = new iam.Role(this, "Lumanation-LambdaRole-dev", {
-      assumedBy: new iam.ServicePrincipal("lambda.amazonaws.com"), // Allow Lambdas to assume this role
-      managedPolicies: [
-        iam.ManagedPolicy.fromAwsManagedPolicyName("service-role/AWSLambdaBasicExecutionRole")
-      ],
-      inlinePolicies: {
-        DynamoDBAccessPolicy: new iam.PolicyDocument({
-          statements: [
-            new iam.PolicyStatement({
-              actions: [
-                "dynamodb:GetItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:Query",
-                "dynamodb:Scan"
-              ],
-              resources: [
-                `arn:aws:dynamodb:${process.env.CDK_DEFAULT_REGION}:${process.env.CDK_DEFAULT_ACCOUNT}:table/${dynamoDevTableName}`
-              ]
-            })
-          ]
-        })
-      }
-    });
+    // const iamRoleLambdaDev = new iam.Role(this, "Lumanation-LambdaRole-dev", {
+    //   assumedBy: new iam.ServicePrincipal("lambda.amazonaws.com"), // Allow Lambdas to assume this role
+    //   managedPolicies: [
+    //     iam.ManagedPolicy.fromAwsManagedPolicyName("service-role/AWSLambdaBasicExecutionRole")
+    //   ],
+    //   inlinePolicies: {
+    //     DynamoDBAccessPolicy: new iam.PolicyDocument({
+    //       statements: [
+    //         new iam.PolicyStatement({
+    //           actions: [
+    //             "dynamodb:GetItem",
+    //             "dynamodb:PutItem",
+    //             "dynamodb:UpdateItem",
+    //             "dynamodb:DeleteItem",
+    //             "dynamodb:Query",
+    //             "dynamodb:Scan"
+    //           ],
+    //           resources: [
+    //             `arn:aws:dynamodb:${process.env.CDK_DEFAULT_REGION}:${process.env.CDK_DEFAULT_ACCOUNT}:table/${dynamoDevTableName}`
+    //           ]
+    //         })
+    //       ]
+    //     })
+    //   }
+    // });
 
-    const iamRoleLambdaProd = new iam.Role(this, "Lumanation-LambdaRole-prod", {
-      assumedBy: new iam.ServicePrincipal("lambda.amazonaws.com"), // Allow Lambdas to assume this role
-      managedPolicies: [
-        iam.ManagedPolicy.fromAwsManagedPolicyName("service-role/AWSLambdaBasicExecutionRole")
-      ],
-      inlinePolicies: {
-        DynamoDBAccessPolicy: new iam.PolicyDocument({
-          statements: [
-            new iam.PolicyStatement({
-              actions: [
-                "dynamodb:GetItem",
-                "dynamodb:PutItem",
-                "dynamodb:UpdateItem",
-                "dynamodb:DeleteItem",
-                "dynamodb:Query",
-                "dynamodb:Scan"
-              ],
-              resources: [
-                `arn:aws:dynamodb:${process.env.CDK_DEFAULT_REGION}:${process.env.CDK_DEFAULT_ACCOUNT}:table/${dynamoProdTableName}`
-              ]
-            })
-          ]
-        })
-      }
-    });
+    // const iamRoleLambdaProd = new iam.Role(this, "Lumanation-LambdaRole-prod", {
+    //   assumedBy: new iam.ServicePrincipal("lambda.amazonaws.com"), // Allow Lambdas to assume this role
+    //   managedPolicies: [
+    //     iam.ManagedPolicy.fromAwsManagedPolicyName("service-role/AWSLambdaBasicExecutionRole")
+    //   ],
+    //   inlinePolicies: {
+    //     DynamoDBAccessPolicy: new iam.PolicyDocument({
+    //       statements: [
+    //         new iam.PolicyStatement({
+    //           actions: [
+    //             "dynamodb:GetItem",
+    //             "dynamodb:PutItem",
+    //             "dynamodb:UpdateItem",
+    //             "dynamodb:DeleteItem",
+    //             "dynamodb:Query",
+    //             "dynamodb:Scan"
+    //           ],
+    //           resources: [
+    //             `arn:aws:dynamodb:${process.env.CDK_DEFAULT_REGION}:${process.env.CDK_DEFAULT_ACCOUNT}:table/${dynamoProdTableName}`
+    //           ]
+    //         })
+    //       ]
+    //     })
+    //   }
+    // });
 
     // Lambda Functions
 

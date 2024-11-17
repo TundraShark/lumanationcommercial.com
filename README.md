@@ -11,9 +11,13 @@ pnpm i --global aws-cdk
 Setting up your config file in `.aws/config`
 ```
 aws configure sso
+
 Lumanation
-https://tundrashark.awsapps.com/start/#
-us-east-1
+
+SSO start URL: https://tundrashark.awsapps.com/start/#
+SSO Region: us-east-1
+
+
 [Enter]
 json
 Lumanation

@@ -5,6 +5,8 @@ import Projects from "./views/projects.vue";
 import Services from "./views/services.vue";
 import Careers from "./views/careers.vue";
 import Contact from "./views/contact.vue";
+import PrivacyPolicy from "./views/privacy-policy.vue";
+import TermsOfService from "./views/terms-of-service.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,6 +35,14 @@ const router = createRouter({
       path: "/contact",
       name: "Contact",
       component: Contact
+    }, {
+      path: "/privacy",
+      name: "PrivacyPolicy",
+      component: PrivacyPolicy
+    }, {
+      path: "/terms",
+      name: "TermsOfService",
+      component: TermsOfService
     }
   ]
 })

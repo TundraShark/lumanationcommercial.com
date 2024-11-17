@@ -17,7 +17,7 @@ interface Config {
   s3Bucket: string;
   cloudFrontDistributionId: string;
 }
-
+process.env.env = "prod";
 const config = yaml.load(fs.readFileSync(`config-${process.env.env}.yml`, "utf-8")) as Config;
 
 async function GetFiles(s3: any, currentPath: string, promises: PutObjects[] = []): Promise<PutObjects[]> {
@@ -72,10 +72,6 @@ async function Main(): Promise<void> {
     region: "us-east-1",
     credentials: credentials
   });
-
-  const cloudFrontDistributionId = await GetCloudFrontDistributionIdByCNAME(cloudfront, "dev.luma-nationcommercial.com");
-
-  console.log(cloudFrontDistributionId);
 
   const params: ListObjectsV2Request = {
     Bucket: config.s3Bucket,

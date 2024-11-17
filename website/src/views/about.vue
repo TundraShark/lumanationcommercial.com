@@ -16,7 +16,7 @@ export default defineComponent({
 <style scoped lang="scss">
 .about {
   display: flex;
-  min-height: calc(100vh - 100px);
+  flex-grow: 1;
 
   > .container {
     display: flex;

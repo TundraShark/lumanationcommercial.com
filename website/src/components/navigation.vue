@@ -82,7 +82,7 @@ export default defineComponent({
 
         > img {
           position: relative;
-          top: 16px;
+          top: 8px;
           height: calc(100% - 16px);
           // padding: 8px 0;
         }

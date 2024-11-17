@@ -13,6 +13,8 @@
     "create-configs": "npx tsx ./create-configs.ts",
     "build-and-deploy-frontend-dev": "vite --mode dev build&& set env=dev&& npx tsx ./deploy-frontend.ts",
     "build-and-deploy-frontend-prod": "vite --mode prod build&& set env=prod&& npx tsx ./deploy-frontend.ts",
+    "deploy-frontend-dev": "set env=dev&& npx tsx ./deploy-frontend.ts",
+    "deploy-frontend-prod": "set env=prod&& npx tsx ./deploy-frontend.ts",
     "generate-pwa-icons": "npx vue-pwa-asset-generator -a ./public/favicon.png -o ./public/pwa-icons --no-manifest"
   },
   "dependencies": {

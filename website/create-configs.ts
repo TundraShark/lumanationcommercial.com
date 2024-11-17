@@ -2,7 +2,7 @@ import { fromSSO } from "@aws-sdk/credential-provider-sso";
 import { CloudFrontClient, ListDistributionsCommand } from "@aws-sdk/client-cloudfront";
 import fs from "fs";
 
-const DOMAIN_NAME = "luma-nationcommercial.com";
+const DOMAIN_NAME = "lumanationelectric.com";
 
 // Configure the credentials using the SSO profile
 const credentials = fromSSO({ profile: "Lumanation" });
