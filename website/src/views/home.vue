@@ -952,10 +952,23 @@ $--neutral-2: hsl(0, 0%, 95%);
 
     > .description {
       display: flex;
+      flex-grow: 1;
       text-align: center;
       padding: 0 16px 16px 16px;
       font-family: "RobotoFlex";
     }
   }
+}
+</style>
+
+<style scoped lang="scss">
+@media only screen and (min-width: 700px) {
+  .mission-statement-container.desktop { display: flex; }
+  .mission-statement-container.mobile  { display: none; }
+}
+
+@media only screen and (max-width: 700px) {
+  .mission-statement-container.desktop { display: none; }
+  .mission-statement-container.mobile  { display: flex; }
 }
 </style>
