@@ -29,25 +29,11 @@
     </div>
 
     <div class="section-2">
-      <div class="mission-statement-container desktop">
-        <div class="left title">Mission</div>
-        <div class="divider" />
-        <div class="right">
-          <div class="card">To be the preferred "go to" resource for our clients for all electrical service initiatives. Embodied through a collaborative relationship that is effective, efficient and continually produces the desired results. Less about the transaction, but more about understanding our business partners' needs and demands, overcoming challenges and exceeding their daily expectations.</div>
-        </div>
-      </div>
-
-      <div class="mission-statement-container mobile">
-        <div class="top title">Mission</div>
-        <div class="divider" />
-        <div class="bot">
-          <div class="card">To be the preferred "go to" resource for our clients for all electrical service initiatives. Embodied through a collaborative relationship that is effective, efficient and continually produces the desired results. Less about the transaction, but more about understanding our business partners' needs and demands, overcoming challenges and exceeding their daily expectations.</div>
-        </div>
-      </div>
+      <bigInfo :data="mission" />
     </div>
 
     <div class="section">
-      <div class="title">Recent Projects</div>
+      <div class="title-red">Recent Projects</div>
 
       <div class="projects-container">
         <template v-for="(obj, i) of projects" :key="i">
@@ -63,21 +49,11 @@
     </div>
 
     <div class="section-2">
-      <div class="mission-statement-container">
-        <div class="left title">Statement</div>
-        <div class="divider" />
-        <div class="right">
-          <div class="card">
-            <!-- It is our belief that every satisfied client is a potential partner for future opportunities and our employees contribute directly to the success and growth of this company. We take pride in our associates and make every effort to provide an educational development program customized to maximize the succession plan and opportunity desire of each person. -->
-            Here at LumaNation Commercial LLC our mission is to uphold the highest standards of quality, integrity, teamwork, and safety. We are dedicated to delivering exceptional services while maintaining unwavering commitment and support in all our interactions. Through collaboration and teamwork, we strive to exceed expectations, fostering an environment where innovation and excellence thrive. Our values form the foundation of our commitment to excellence, guiding every aspect of our operations as we work together to achieve shared success.
-          </div>
-        </div>
-      </div>
+      <bigInfo :data="statement" />
     </div>
 
-    <!-- Meet our Team, have a couple of faces, so when you click on them it will go to the person? -->
     <div class="section">
-      <div class="title">Meet Our Team</div>
+      <div class="title-red">Meet Our Team</div>
 
       <div class="team-container">
         <template v-for="(obj, i) of meetOurTeam" :key="i">
@@ -96,23 +72,32 @@
     </div>
 
     <div class="section-2">
-      <div class="mission-statement-container">
-        <div class="left title">Culture</div>
-        <div class="divider" />
-        <div class="right">
-          <div class="card">
-            <!-- It is our belief that every satisfied client is a potential partner for future opportunities and our employees contribute directly to the success and growth of this company. We take pride in our associates and make every effort to provide an educational development program customized to maximize the succession plan and opportunity desire of each person. -->
-            At LumaNation, we value our people as our greatest asset and are committed to fostering a culture of respect, collaboration, and growth. Built on integrity, innovation, and excellence, we encourage open communication and accountability to support our team’s development. Balancing work and life is essential to us, fueling a shared purpose to make a positive impact within our company and beyond.
-          </div>
-        </div>
-      </div>
+      <bigInfo :data="culture" />
     </div>
 
     <div class="section">
-      <div class="title">Career Path</div>
+      <div class="title-red">Career Path</div>
 
-      <div class="career-path-container">
+      <div class="career-path-container desktop">
         <Timeline :value="careerPath" align="alternate" class="customized-timeline">
+          <template #opposite="slotProps">
+            <div class="card">
+              <div class="title">{{ slotProps.item.title }}</div>
+              <div class="divider" />
+              <div class="text">{{ slotProps.item.text }}</div>
+            </div>
+          </template>
+          <template #marker="slotProps">
+            <div class="icon">
+              <component :is="slotProps.item.icon" />
+            </div>
+            <div v-if="slotProps.index + 1 === careerPath.length" class="p-timeline-event-connector final" />
+          </template>
+        </Timeline>
+      </div>
+
+      <div class="career-path-container mobile">
+        <Timeline :value="careerPath" align="left" class="customized-timeline">
           <template #opposite="slotProps">
             <div class="card">
               <div class="title">{{ slotProps.item.title }}</div>
@@ -131,18 +116,15 @@
     </div>
 
     <div class="section-2">
-      <div class="title">We are always hiring!</div>
+      <div class="title-green">We're always hiring!</div>
 
       <a href="https://forms.monday.com/forms/2508cf20417e001e8c04ec60a52e4945" target="_blank">
         <div class="button-1">Check Open Positions</div>
       </a>
     </div>
 
-    <!-- For the clients, it will be specific companies, so it will contain the logo. We could also have carsoluell of all of the companies -->
-    <!-- Clients: -->
-    <!-- https://coopergencon.com/ -->
     <div class="section-carousel">
-      <div class="title">Our Clients</div>
+      <div class="title-red">Our Clients</div>
 
       <div id="gallery-carousel-container">
         <div id="carousel" class="f-carousel">
@@ -171,6 +153,7 @@
   import svgToolbox from "@/assets/svg/toolbox.vue";
   import svgUserTie from "@/assets/svg/user-tie.vue";
   import svgWrench from "@/assets/svg/wrench.vue";
+  import bigInfo from "@/components/big-info.vue";
 
   export default defineComponent({
     components: {
@@ -178,10 +161,25 @@
       svgClipboard,
       svgToolbox,
       svgUserTie,
-      svgWrench
+      svgWrench,
+      bigInfo
     },
     data: function () {
       return {
+        mission: {
+          title: "Mission",
+          text: `To be the preferred "go to" resource for our clients for all electrical service initiatives. Embodied through a collaborative relationship that is effective, efficient and continually produces the desired results. Less about the transaction, but more about understanding our business partners' needs and demands, overcoming challenges and exceeding their daily expectations.`
+        },
+        statement: {
+          title: "Statement",
+          text: `Here at LumaNation Commercial LLC our mission is to uphold the highest standards of quality, integrity, teamwork, and safety. We are dedicated to delivering exceptional services while maintaining unwavering commitment and support in all our interactions. Through collaboration and teamwork, we strive to exceed expectations, fostering an environment where innovation and excellence thrive. Our values form the foundation of our commitment to excellence, guiding every aspect of our operations as we work together to achieve shared success.`
+        },
+        culture: {
+          title: "Culture",
+          text: `At LumaNation, we value our people as our greatest asset and are committed to fostering a culture of respect, collaboration, and growth. Built on integrity, innovation, and excellence, we encourage open communication and accountability to support our team’s development. Balancing work and life is essential to us, fueling a shared purpose to make a positive impact within our company and beyond.`
+        },
+        videoHeight: "100vh",
+        videoFullSize: true,
         videoLeft: "0",
         mouseScrollOpacity: "1",
         projects: [
@@ -193,7 +191,7 @@
           {
             title: "Wash Masters - Lynn Creek",
             description: "Victron Group’s Grand Prairie flagship convenience store and car wash features a 6,000 sq. ft. Gateway store with Dunkin’ Donuts and Jimmy John’s, custom lighting, a beer cave, and six fuel dispensers. The adjacent 6,400 sq. ft. Wash Masters Car Wash includes a 125’ automated tunnel, 50+ motors, and ambiance lighting for its 17-vacuum stall area. LumaNation handled all lighting, power, fire alarm, low-voltage/security conduit, and complete fuel system wiring for the project.",
-            imageUrl: "/projects/washmasters.png"
+            imageUrl: "/projects/washmasters.jpg"
           },
           {
             title: "Haven Apartments",
@@ -362,6 +360,16 @@
     },
     methods: {
       Resize: function () {
+        console.log(window.innerHeight, window.innerWidth / 1.75);
+
+        if (window.innerWidth / 1.75 > window.innerHeight) {
+          this.videoHeight = "100vh";
+          this.videoFullSize = true;
+        } else {
+          this.videoHeight = `${window.innerWidth / 1.75}px`;
+          this.videoFullSize = false;
+        }
+
         if (window.innerWidth >= 650) {
           this.videoLeft = `-${window.innerWidth}px`;
         } else {
@@ -378,78 +386,78 @@
 </script>
 
 <style lang="scss">
-@media only screen and (min-width: 600px) {
-  #carousel {
-    .f-carousel__slide {
-      width: 50%;
+  @media only screen and (min-width: 600px) {
+    #carousel {
+      .f-carousel__slide {
+        width: 50%;
 
-      > img {
-        height: 100px;
-        max-width: 48%;
-        object-fit: contain;
+        > img {
+          height: 100px;
+          max-width: 48%;
+          object-fit: contain;
+        }
       }
     }
   }
-}
 
-@media only screen and (min-width: 800px) {
-  #carousel {
-    .f-carousel__slide {
-      width: 33.33%;
+  @media only screen and (min-width: 800px) {
+    #carousel {
+      .f-carousel__slide {
+        width: 33.33%;
 
-      > img {
-        height: 100px;
-        max-width: 32%;
-        object-fit: contain;
+        > img {
+          height: 100px;
+          max-width: 32%;
+          object-fit: contain;
+        }
       }
     }
   }
-}
 
-@media only screen and (max-width: 600px) {
-  #carousel {
-    .f-carousel__slide {
-      width: 100%;
+  @media only screen and (max-width: 600px) {
+    #carousel {
+      .f-carousel__slide {
+        width: 100%;
 
-      > img {
-        height: 100px;
-        max-width: 90%;
-        object-fit: contain;
+        > img {
+          height: 100px;
+          max-width: 90%;
+          object-fit: contain;
+        }
       }
     }
   }
-}
 
-#carousel {
-  .f-carousel__slide {
-    display: flex;
-    justify-content: center;
+  #carousel {
+    .f-carousel__slide {
+      display: flex;
+      justify-content: center;
 
-    img {
-      height: 100px;
+      img {
+        height: 100px;
+      }
     }
   }
-}
 </style>
 
 <style scoped lang="scss">
-// 1. Primary Colors:
-$--primary-1: #4b4b4b;
-$--primary-2: #2c2c2c;
-$--primary-3: #1c2a3e;
+  // 1. Primary Colors:
+  $--primary-1: #4b4b4b;
+  $--primary-2: #2c2c2c;
+  $--primary-3: #1c2a3e;
 
-// 2. Accent Colors:
-$--accent-1: #fa052b;
-$--accent-2: #ffc300;
-$--accent-3: #2ecc71;
+  // 2. Accent Colors:
+  $--accent-1: #fa052b;
+  $--accent-2: #ffc300;
+  $--accent-3: #2ecc71;
 
-// 3. Neutral Colors:
-$--neutral-1: hsl(0, 0%, 90%);
-$--neutral-2: hsl(0, 0%, 95%);
+  // 3. Neutral Colors:
+  $--neutral-1: hsl(0, 0%, 90%);
+  $--neutral-2: hsl(0, 0%, 95%);
 
-.carousel-img-container {
-  display: flex;
-}
+  .carousel-img-container {
+    display: flex;
+  }
 
 .home-page {
   > .video-container {
@@ -593,382 +601,401 @@ $--neutral-2: hsl(0, 0%, 95%);
               animation-direction: alternate;
               margin-top: -6px;
             }
+            }
           }
         }
       }
     }
-  }
 
-  > .panel-1 {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    font-family: "RobotoFlex";
-    background-color: hsl(200, 15%, 19%);
-    color: #fff;
-  }
-}
-
-.mission-statement-container {
-  display: flex;
-  width: 100%;
-  height: 100%;
-
-  &.desktop {
-    > .left {
+    > .panel-1 {
       display: flex;
-      align-items: center;
       flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      min-width: calc(50% - 18px);
-      max-width: calc(50% - 18px);
-    }
-
-    > .right {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-width: calc(50% - 18px);
-      max-width: calc(50% - 18px);
-    }
-
-    > .divider {
-      display: flex;
-      min-width: 4px;
-      max-width: 4px;
-      min-height: 90%;
-      margin: 8px 8px;
-      background-color: $--accent-3;
-      filter: drop-shadow(0px 0px 2px hsl(145.44deg 63.2% 59.02%));
+      width: 100%;
+      font-family: "RobotoFlex";
+      background-color: hsl(200, 15%, 19%);
+      color: #fff;
     }
   }
 
-  &.mobile {
-    flex-direction: column;
-
-    > .top {
-      margin-left: 16px;
+  @-webkit-keyframes mouse-wheel{
+    0% {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+      transform: translateY(0);
     }
 
-    > .divider {
-      display: flex;
-      min-width: calc(100% - 16px);
-      max-width: calc(100% - 16px);
-      min-height: 4px;
-      max-height: 4px;
-      margin: 8px 8px;
-      background-color: $--accent-3;
-      filter: drop-shadow(0px 0px 2px hsl(145.44deg 63.2% 59.02%));
+    100% {
+      opacity: 0;
+      -webkit-transform: translateY(6px);
+      -ms-transform: translateY(6px);
+      transform: translateY(6px);
     }
   }
 
-  .card {
-    margin: 16px;
-    padding: 8px;
-    border-radius: 16px;
-    font-size: 1.2rem;
-    font-family: "RobotoFlex";
-    line-height: 1.4;
-    color: #E0E0E0;
+  @-moz-keyframes mouse-wheel {
+    0%   { top: 1px; }
+    25%  { top: 2px; }
+    50%  { top: 3px; }
+    75%  { top: 2px; }
+    100% { top: 1px; }
   }
 
-  .title {
-    font-size: 5rem;
+  @-o-keyframes mouse-wheel {
+    0%   { top: 1px; }
+    25%  { top: 2px; }
+    50%  { top: 3px; }
+    75%  { top: 2px; }
+    100% { top: 1px; }
+  }
+
+  @keyframes mouse-wheel {
+    0%   { top: 1px; }
+    25%  { top: 2px; }
+    50%  { top: 3px; }
+    75%  { top: 2px; }
+    100% { top: 1px; }
+  }
+
+  @-webkit-keyframes mouse-scroll {
+    0%   { opacity: 0;  }
+    50%  { opacity: .5; }
+    100% { opacity: 1;  }
+  }
+
+  @-moz-keyframes mouse-scroll {
+    0%   { opacity: 0;  }
+    50%  { opacity: .5; }
+    100% { opacity: 1;  }
+  }
+
+  @-o-keyframes mouse-scroll {
+    0%   { opacity: 0;  }
+    50%  { opacity: .5; }
+    100% { opacity: 1;  }
+  }
+
+  @keyframes mouse-scroll {
+    0%   { opacity: 0;  }
+    50%  { opacity: .5; }
+    100% { opacity: 1;  }
+  }
+
+  .team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     font-family: "Oswald";
-    letter-spacing: 4px;
-    color: $--accent-3;
-    filter: drop-shadow(0px 0px 2px hsl(145.44deg 63.2% 59.02%));
-  }
-}
+    max-width: 1400px;
 
-@-webkit-keyframes mouse-wheel{
-  0% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: translateY(6px);
-    -ms-transform: translateY(6px);
-    transform: translateY(6px);
-  }
-}
-
-@-moz-keyframes mouse-wheel {
-  0%   { top: 1px; }
-  25%  { top: 2px; }
-  50%  { top: 3px; }
-  75%  { top: 2px; }
-  100% { top: 1px; }
-}
-
-@-o-keyframes mouse-wheel {
-  0%   { top: 1px; }
-  25%  { top: 2px; }
-  50%  { top: 3px; }
-  75%  { top: 2px; }
-  100% { top: 1px; }
-}
-
-@keyframes mouse-wheel {
-  0%   { top: 1px; }
-  25%  { top: 2px; }
-  50%  { top: 3px; }
-  75%  { top: 2px; }
-  100% { top: 1px; }
-}
-
-@-webkit-keyframes mouse-scroll {
-  0%   { opacity: 0;  }
-  50%  { opacity: .5; }
-  100% { opacity: 1;  }
-}
-
-@-moz-keyframes mouse-scroll {
-  0%   { opacity: 0;  }
-  50%  { opacity: .5; }
-  100% { opacity: 1;  }
-}
-
-@-o-keyframes mouse-scroll {
-  0%   { opacity: 0;  }
-  50%  { opacity: .5; }
-  100% { opacity: 1;  }
-}
-
-@keyframes mouse-scroll {
-  0%   { opacity: 0;  }
-  50%  { opacity: .5; }
-  100% { opacity: 1;  }
-}
-
-.team-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  font-family: "Oswald";
-  max-width: 1400px;
-
-  > .client {
-    display: flex;
-    flex-direction: column;
-    background-color: $--primary-3;
-    color: $--neutral-1;
-    border: 2px solid $--accent-2;
-    max-width: 400px;
-    margin: 0.5rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0px 4px 8px 2px rgb(0 0 0 / 30%);
-
-    > .portrait-container {
+    > .client {
       display: flex;
-      justify-content: center;
-
-      > img {
-        width: 133px;
-        height: 133px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 2px solid silver;
-      }
-    }
-
-    > .text-container {
-      display: flex;
-      align-items: center;
       flex-direction: column;
+      background-color: $--primary-3;
+      color: $--neutral-1;
+      border: 2px solid $--accent-2;
+      max-width: 400px;
+      margin: 0.5rem;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0px 4px 8px 2px rgb(0 0 0 / 30%);
 
-      > .name {
+      > .portrait-container {
         display: flex;
-        margin: 8px;
-        text-align: center;
-        font-size: 2.5rem;
-        font-weight: bold;
+        justify-content: center;
+
+        > img {
+          width: 133px;
+          height: 133px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 2px solid silver;
+        }
       }
 
-      > .bio {
+      > .text-container {
         display: flex;
-        text-align: center;
-        padding: 0 16px 16px 16px;
-        font-size: 1.2rem;
+        align-items: center;
+        flex-direction: column;
+
+        > .name {
+          display: flex;
+          margin: 8px;
+          text-align: center;
+          font-size: 2.5rem;
+          font-weight: bold;
+        }
+
+        > .bio {
+          display: flex;
+          text-align: center;
+          padding: 0 16px 16px 16px;
+          font-size: 1.2rem;
+        }
       }
     }
   }
-}
 </style>
 
 <style lang="scss">
-// 1. Primary Colors:
-$--primary-1: #4b4b4b;
-$--primary-2: #2c2c2c;
-$--primary-3: #1c2a3e;
-$--primary-4: hsl(0 0% 90% / 1);
+  // 1. Primary Colors:
+  $--primary-1: #4b4b4b;
+  $--primary-2: #2c2c2c;
+  $--primary-3: #1c2a3e;
+  $--primary-4: hsl(0 0% 90% / 1);
 
-// 2. Accent Colors:
-$--accent-1: #fa052b;
-$--accent-2: #ffc300;
-$--accent-3: #2ecc71;
+  // 2. Accent Colors:
+  $--accent-1: #fa052b;
+  $--accent-2: #ffc300;
+  $--accent-3: #2ecc71;
 
-$--neutral-1: hsl(0, 0%, 90%);
-$--neutral-2: hsl(0, 0%, 95%);
+  $--neutral-1: hsl(0, 0%, 90%);
+  $--neutral-2: hsl(0, 0%, 95%);
 
-.career-path-container {
-  .p-timeline {
-    .p-timeline-event {
-      height: 18rem;
+  .career-path-container {
+    &.desktop {
+      .p-timeline {
+        .p-timeline-event {
+          height: 18rem;
 
-      &:nth-child(odd) .card {
-        transform: translateX(-1rem);
-      }
+          &:nth-child(odd) .card {
+            transform: translateX(-1rem);
+          }
 
-      &:nth-child(even) .card {
-        transform: translateX(1rem);
-      }
+          &:nth-child(even) .card {
+            transform: translateX(1rem);
+          }
 
-      .p-timeline-event-content {
-        width: 25rem;
-      }
+          .p-timeline-event-content {
+            width: 25rem;
+          }
 
-      .p-timeline-event-separator {
-        justify-content: center;
-        // min-height: 10rem !important;
+          .p-timeline-event-separator {
+            justify-content: center;
+            // min-height: 10rem !important;
 
-        .icon {
-          display: flex;
-          z-index: 1;
-          background-color: #e6e6e6;
-          padding: 0.25rem 0;
-          fill: $--primary-3;
-          width: 2rem
-        }
+            .icon {
+              display: flex;
+              z-index: 1;
+              background-color: #e6e6e6;
+              padding: 0.25rem 0;
+              fill: $--primary-3;
+              width: 2rem
+            }
 
-        .p-timeline-event-connector {
-          position: absolute;
-          width: 2px;
-          background-color: $--accent-3;
-          height: 100%;
+            .p-timeline-event-connector {
+              position: absolute;
+              width: 2px;
+              background-color: $--accent-3;
+              height: 100%;
 
-          &.final {
-            height: 50%;
-            top: 0;
+              &.final {
+                height: 50%;
+                top: 0;
+              }
+            }
+          }
+
+          .p-timeline-event-opposite {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 10rem;
+
+            .card {
+              position: absolute;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              border: 2px solid $--primary-3;
+              border-radius: 0.5rem;
+              width: 100%;
+              height: 100%;
+              padding: 0.5rem;
+              box-shadow: 0px 0px 20px 2px hsl(0deg 0% 0% / 30%);
+
+              > .title {
+                text-align: center;
+                font-family: "Oswald";
+                font-size: 1.6rem;
+                margin: 0.5rem 0;
+                letter-spacing: 0.5px;
+              }
+
+              > .divider {
+                width: 80%;
+                height: 2px;
+                background-color: $--accent-3;
+              }
+
+              > .text {
+                text-align: center;
+                font-family: "RobotoFlex";
+                font-size: 1.2rem;
+                margin: 0.5rem 0;
+              }
+            }
           }
         }
       }
+    }
 
-      .p-timeline-event-opposite {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 10rem;
+    &.mobile {
+      .p-timeline {
+        .p-timeline-event {
+          height: 18rem;
+          padding-bottom: 1rem;
 
-        .card {
-          position: absolute;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          border: 2px solid $--primary-3;
-          border-radius: 0.5rem;
-          width: 100%;
-          height: 100%;
-          padding: 0.5rem;
-          box-shadow: 0px 0px 20px 2px hsl(0deg 0% 0% / 30%);
+          // &:nth-child(odd) .card {
+          //   // transform: translateX(-1rem);
+          // }
 
-          > .title {
-            text-align: center;
-            font-family: "Oswald";
-            font-size: 1.6rem;
-            margin: 0.5rem 0;
-            letter-spacing: 0.5px;
+          // &:nth-child(even) .card {
+          //   // transform: translateX(1rem);
+          // }
 
+          .p-timeline-event-content {
+            // width: 0rem;
+            // flex-shrink: 999999;
+            flex: 0;
           }
 
-          > .divider {
-            width: 80%;
-            height: 2px;
-            background-color: $--accent-3;
+          .p-timeline-event-separator {
+            justify-content: center;
+
+            .icon {
+              display: flex;
+              z-index: 1;
+              background-color: #e6e6e6;
+              padding: 0.25rem 0;
+              fill: $--primary-3;
+              width: 2rem
+            }
+
+            .p-timeline-event-connector {
+              position: absolute;
+              width: 2px;
+              background-color: $--accent-3;
+              height: 100%;
+
+              &.final {
+                height: 50%;
+                top: -1rem;
+              }
+            }
           }
 
-          > .text {
-            text-align: center;
-            font-family: "RobotoFlex";
-            font-size: 1.2rem;
-            margin: 0.5rem 0;
+          .p-timeline-event-opposite {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 16rem;
+            margin-right: 1rem;
+
+            .card {
+              position: absolute;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              border: 2px solid $--primary-3;
+              border-radius: 0.5rem;
+              width: 100%;
+              height: 100%;
+              padding: 0.5rem;
+              box-shadow: 0px 0px 20px 2px hsl(0deg 0% 0% / 30%);
+
+              > .title {
+                text-align: center;
+                font-family: "Oswald";
+                font-size: 1.6rem;
+                margin: 0.5rem 0;
+                letter-spacing: 0.5px;
+              }
+
+              > .divider {
+                width: 80%;
+                height: 2px;
+                background-color: $--accent-3;
+              }
+
+              > .text {
+                text-align: center;
+                font-family: "RobotoFlex";
+                font-size: 1.2rem;
+                margin: 0.5rem 0;
+              }
+            }
           }
         }
       }
     }
   }
-}
 
-.projects-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 1200px;
-
-  > .project {
+  .projects-container {
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
-    border-radius: 8px;
-    background-color: $--primary-3;
-    color: $--neutral-1;
-    box-shadow: 0px 4px 8px 2px rgb(0 0 0 / 30%);
-    width: 300px;
-    margin: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
 
-    > .image {
+    > .project {
       display: flex;
-      max-width: 300px;
-      max-height: 200px;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 8px;
+      background-color: $--primary-3;
+      color: $--neutral-1;
+      box-shadow: 0px 4px 8px 2px rgb(0 0 0 / 30%);
+      width: 300px;
+      margin: 8px;
 
-      > img {
-        width: 300px;
-        height: 200px;
-        object-fit: cover;
-        border-bottom: 2px solid $--accent-3;
-        border-radius: 8px 8px 0 0;
+      > .image {
+        display: flex;
+        max-width: 300px;
+        max-height: 200px;
+
+        > img {
+          width: 300px;
+          height: 200px;
+          object-fit: cover;
+          border-bottom: 2px solid $--accent-3;
+          border-radius: 8px 8px 0 0;
+        }
+      }
+
+      > .title {
+        display: flex;
+        margin: 8px;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        font-family: "Oswald";
+        color: $--accent-3;
+      }
+
+      > .description {
+        display: flex;
+        flex-grow: 1;
+        text-align: center;
+        padding: 0 16px 16px 16px;
+        font-family: "RobotoFlex";
       }
     }
-
-    > .title {
-      display: flex;
-      margin: 8px;
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      font-family: "Oswald";
-      color: $--accent-3;
-    }
-
-    > .description {
-      display: flex;
-      flex-grow: 1;
-      text-align: center;
-      padding: 0 16px 16px 16px;
-      font-family: "RobotoFlex";
-    }
   }
-}
 </style>
 
 <style scoped lang="scss">
-@media only screen and (min-width: 700px) {
-  .mission-statement-container.desktop { display: flex; }
-  .mission-statement-container.mobile  { display: none; }
-}
+  @media only screen and (min-width: 700px) {
+    .career-path-container.desktop { display: flex; }
+    .career-path-container.mobile  { display: none; }
+  }
 
-@media only screen and (max-width: 700px) {
-  .mission-statement-container.desktop { display: none; }
-  .mission-statement-container.mobile  { display: flex; }
-}
+  @media only screen and (max-width: 700px) {
+    .career-path-container.desktop { display: none; }
+    .career-path-container.mobile  { display: flex; }
+  }
 </style>
