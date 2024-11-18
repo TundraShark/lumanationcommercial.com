@@ -1,18 +1,11 @@
 <template>
   <div class="home-page">
-    <div class="video-container">
-      <video autoplay nocontrols muted playsinline loop :style="{left: videoLeft}">
+    <div class="video-container" :style="{height: videoHeight}">
+      <video autoplay nocontrols muted playsinline loop :style="{left: (videoFullSize ? videoLeft : '0')}" :class="(videoFullSize ? 'fullsize' : '')">
         <source src="/home-page-montage.mp4" type="video/mp4">
       </video>
       <div class="video-dark" />
       <div class="text-container">
-        <div class="top">
-          <!-- <div class="title">Crafting<br>Excellence</div> -->
-          <!-- <div class="title">Bringing<br>buildings to life</div> -->
-          <!-- <div class="title">Bringing<br>Buildings to life</div> -->
-           <!-- to life -->
-          <!-- <div class="subtitle">Bringing buildings to life</div> -->
-        </div>
         <div class="bot">
           <div class="mouse-scroll" :style="{opacity: mouseScrollOpacity}">
             <div class="mouse">
@@ -72,7 +65,7 @@
     </div>
 
     <div class="section-2">
-      <bigInfo :data="culture" />
+      <bigInfo :data="values" />
     </div>
 
     <div class="section">
@@ -168,15 +161,25 @@
       return {
         mission: {
           title: "Mission",
-          text: `To be the preferred "go to" resource for our clients for all electrical service initiatives. Embodied through a collaborative relationship that is effective, efficient and continually produces the desired results. Less about the transaction, but more about understanding our business partners' needs and demands, overcoming challenges and exceeding their daily expectations.`
+          text: [`To be the preferred "go to" resource for our clients for all electrical service initiatives. Embodied through a collaborative relationship that is effective, efficient and continually produces the desired results. Less about the transaction, but more about understanding our business partners' needs and demands, overcoming challenges and exceeding their daily expectations.`]
         },
         statement: {
           title: "Statement",
-          text: `Here at LumaNation Commercial LLC our mission is to uphold the highest standards of quality, integrity, teamwork, and safety. We are dedicated to delivering exceptional services while maintaining unwavering commitment and support in all our interactions. Through collaboration and teamwork, we strive to exceed expectations, fostering an environment where innovation and excellence thrive. Our values form the foundation of our commitment to excellence, guiding every aspect of our operations as we work together to achieve shared success.`
+          text: [`Here at LumaNation Commercial LLC our mission is to uphold the highest standards of quality, integrity, teamwork, and safety. We are dedicated to delivering exceptional services while maintaining unwavering commitment and support in all our interactions. Through collaboration and teamwork, we strive to exceed expectations, fostering an environment where innovation and excellence thrive. Our values form the foundation of our commitment to excellence, guiding every aspect of our operations as we work together to achieve shared success.`]
+        },
+        values: {
+          title: "Values",
+          text: [
+            `God: We view our work as a calling to reflect Christ’s love and integrity, striving for excellence to glorify Him and serve others.`,
+            `Commitment: We are dedicated to exceeding expectations through hard work, perseverance, and building long-term client relationships.`,
+            `Integrity: We prioritize honesty, transparency, and doing what is morally upright, fostering trust and creating a positive, reliable environment.`,
+            `Trust: We build strong, lasting relationships by honoring commitments, delivering quality work, and ensuring transparency.`,
+            `Communication: We value clear, timely, and open communication to foster trust, collaboration, and precision in all projects.`
+          ]
         },
         culture: {
           title: "Culture",
-          text: `At LumaNation, we value our people as our greatest asset and are committed to fostering a culture of respect, collaboration, and growth. Built on integrity, innovation, and excellence, we encourage open communication and accountability to support our team’s development. Balancing work and life is essential to us, fueling a shared purpose to make a positive impact within our company and beyond.`
+          text: [`At LumaNation, we value our people as our greatest asset and are committed to fostering a culture of respect, collaboration, and growth. Built on integrity, innovation, and excellence, we encourage open communication and accountability to support our team’s development. Balancing work and life is essential to us, fueling a shared purpose to make a positive impact within our company and beyond.`]
         },
         videoHeight: "100vh",
         videoFullSize: true,
@@ -269,7 +272,13 @@
 
           "/company-logos/splash-brands.webp",
           "/company-logos/snap-clean-car-wash.webp",
-          "/company-logos/urban-garages.webp"
+          "/company-logos/urban-garages.webp",
+
+          "/company-logos/landshark.png",
+          "/company-logos/abg.png",
+          "/company-logos/jimmy-johns.png",
+
+          "/company-logos/dunkin-donuts.png"
         ],
         currentSlide: 0,
         previousSlide: -1,
@@ -360,8 +369,6 @@
     },
     methods: {
       Resize: function () {
-        console.log(window.innerHeight, window.innerWidth / 1.75);
-
         if (window.innerWidth / 1.75 > window.innerHeight) {
           this.videoHeight = "100vh";
           this.videoFullSize = true;
@@ -459,153 +466,315 @@
     display: flex;
   }
 
-.home-page {
-  > .video-container {
-    margin: auto;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    transform: translatez(0);
-
-    > video {
-      position: absolute;
-      transform: translatez(0);
-      top: -100%;
-      bottom: -100%;
-      right: -100%;
+  .home-page {
+    > .video-container {
       margin: auto;
-
-      min-width: 100%;
-      min-height: 100%;
-    }
-
-    > .video-dark {
       width: 100%;
-      height: 100%;
-      background-color: hsla(0, 0%, 0%, 0.2);
-      // background-color: hsla(0, 0%, 0%, 0.7);
-      transform: translatez(1px);
-    }
+      height: 100vh;
+      overflow: hidden;
+      transform: translateZ(0);
 
-    > .text-container {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      // height: 100px;
-      bottom: 0;
-      position: absolute;
-      transform: translatez(2px);
-      font-family: "Oswald";
+      > video {
+        position: absolute;
+        transform: translateZ(0);
+        top: -100%;
+        bottom: -100%;
+        margin: auto;
+        min-width: 100%;
+        min-height: 100%;
 
-      > .top {
-        > .title {
-          color: $--neutral-1;
-          filter: drop-shadow(0px 0px 5px $--primary-1);
-          font-size: 5rem;
-          font-weight: bold;
-          letter-spacing: 1px;
-          margin: 0 16px 16px 16px;
-          line-height: 96px;
+        &:not(.fullsize) {
+          height: 100%;
         }
 
-        > .subtitle {
-          color: #fff;
-          font-size: 1.25rem;
-          margin: 0 16px 16px 16px;
-          letter-spacing: 1px;
+        &.fullsize {
+          right: -100%;
         }
       }
 
-      > .bot {
+      > .video-dark {
+        width: 100%;
+        height: 100%;
+        background-color: hsla(0, 0%, 0%, 0.2);
+        // background-color: hsla(0, 0%, 0%, 0.7);
+        transform: translatez(1px);
+      }
+
+      > .text-container {
         display: flex;
         flex-direction: column;
+        width: 100%;
+        // height: 100px;
+        bottom: 0;
+        position: absolute;
+        transform: translatez(2px);
+        font-family: "Oswald";
 
-        > .mouse-scroll {
-          margin: 16px auto;
-          transition: opacity 0.8s ease-out;
-
-          > .mouse {
-            height: 42px;
-            width: 24px;
-            border-radius: 14px;
-            transform: none;
-            border: 2px solid white;
-            top: 170px;
-
-            > .wheel {
-              height: 5px;
-              width: 2px;
-              display: block;
-              margin: 5px auto;
-              background: white;
-              position: relative;
-
-              height: 4px;
-              width: 4px;
-              border: 2px solid #fff;
-              border-radius: 8px;
-              -webkit-border-radius: 8px;
-              -webkit-animation: mouse-wheel 0.6s linear infinite;
-              -moz-animation: mouse-wheel 0.6s linear infinite;
-              animation: mouse-wheel 0.6s linear infinite;
-            }
+        > .top {
+          > .title {
+            color: $--neutral-1;
+            filter: drop-shadow(0px 0px 5px $--primary-1);
+            font-size: 5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin: 0 16px 16px 16px;
+            line-height: 96px;
           }
 
-          > .m-scroll-arrow-container {
-            > .m-scroll-arrows {
-              display: block;
-              width: 5px;
-              height: 5px;
-              -ms-transform: rotate(45deg); /* IE 9 */
-              -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-              transform: rotate(45deg);
-              border-right: 2px solid white;
-              border-bottom: 2px solid white;
-              margin: 0 0 3px 4px;
-              width: 16px;
-              height: 16px;
+          > .subtitle {
+            color: #fff;
+            font-size: 1.25rem;
+            margin: 0 16px 16px 16px;
+            letter-spacing: 1px;
+          }
+        }
+
+        > .bot {
+          display: flex;
+          flex-direction: column;
+
+          > .mouse-scroll {
+            margin: 16px auto;
+            transition: opacity 0.8s ease-out;
+
+            > .mouse {
+              height: 42px;
+              width: 24px;
+              border-radius: 14px;
+              transform: none;
+              border: 2px solid white;
+              top: 170px;
+
+              > .wheel {
+                height: 5px;
+                width: 2px;
+                display: block;
+                margin: 5px auto;
+                background: white;
+                position: relative;
+
+                height: 4px;
+                width: 4px;
+                border: 2px solid #fff;
+                border-radius: 8px;
+                -webkit-border-radius: 8px;
+                -webkit-animation: mouse-wheel 0.6s linear infinite;
+                -moz-animation: mouse-wheel 0.6s linear infinite;
+                animation: mouse-wheel 0.6s linear infinite;
+              }
             }
 
-            > .one, > .two, > .three {
-              -webkit-animation: mouse-scroll 1s infinite;
-              -moz-animation: mouse-scroll 1s infinite;
-              animation: mouse-scroll 1s infinite;
-            }
+            > .m-scroll-arrow-container {
+              > .m-scroll-arrows {
+                display: block;
+                width: 5px;
+                height: 5px;
+                -ms-transform: rotate(45deg); /* IE 9 */
+                -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+                transform: rotate(45deg);
+                border-right: 2px solid white;
+                border-bottom: 2px solid white;
+                margin: 0 0 3px 4px;
+                width: 16px;
+                height: 16px;
+              }
 
-            > .one {
-              margin-top: 1px;
-            }
+              > .one, > .two, > .three {
+                -webkit-animation: mouse-scroll 1s infinite;
+                -moz-animation: mouse-scroll 1s infinite;
+                animation: mouse-scroll 1s infinite;
+              }
 
-            > .one {
-              -webkit-animation-delay: .1s;
-              -moz-animation-delay: .1s;
-              -webkit-animation-direction: alternate;
-              animation-direction: alternate;
-              animation-delay: alternate;
-            }
+              > .one {
+                margin-top: 1px;
+              }
 
-            > .two {
-              -webkit-animation-delay: .2s;
-              -moz-animation-delay: .2s;
-              -webkit-animation-direction: alternate;
-              animation-delay: .2s;
-              animation-direction: alternate;
-              margin-top: -6px;
-            }
+              > .one {
+                -webkit-animation-delay: .1s;
+                -moz-animation-delay: .1s;
+                -webkit-animation-direction: alternate;
+                animation-direction: alternate;
+                animation-delay: alternate;
+              }
 
-            > .three {
-              -webkit-animation-delay: .3s;
-              -moz-animation-delay: .3s;
-              -webkit-animation-direction: alternate;
-              animation-delay: .3s;
-              animation-direction: alternate;
-              margin-top: -6px;
-            }
+              > .two {
+                -webkit-animation-delay: .2s;
+                -moz-animation-delay: .2s;
+                -webkit-animation-direction: alternate;
+                animation-delay: .2s;
+                animation-direction: alternate;
+                margin-top: -6px;
+              }
+
+              > .three {
+                -webkit-animation-delay: .3s;
+                -moz-animation-delay: .3s;
+                -webkit-animation-direction: alternate;
+                animation-delay: .3s;
+                animation-direction: alternate;
+                margin-top: -6px;
+              }
             }
           }
         }
       }
     }
+
+    /*
+    > .video-container {
+      margin: auto;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      transform: translatez(0);
+
+      > video {
+        width: 100%;
+
+        &.fullsize {
+          height: 100%;
+
+          position: absolute;
+          top: -100%;
+          bottom: -100%;
+          right: -100%;
+          margin: auto;
+
+          min-width: 100%;
+          min-height: 100%;
+
+          transform: translatez(0);
+        }
+      }
+
+      > .video-dark {
+        width: 100%;
+        height: 100%;
+        background-color: hsla(0, 0%, 0%, 0.2);
+        // background-color: hsla(0, 0%, 0%, 0.7);
+        transform: translatez(1px);
+      }
+
+      > .text-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        // height: 100px;
+        bottom: 0;
+        position: absolute;
+        transform: translatez(2px);
+        font-family: "Oswald";
+
+        > .top {
+          > .title {
+            color: $--neutral-1;
+            filter: drop-shadow(0px 0px 5px $--primary-1);
+            font-size: 5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin: 0 16px 16px 16px;
+            line-height: 96px;
+          }
+
+          > .subtitle {
+            color: #fff;
+            font-size: 1.25rem;
+            margin: 0 16px 16px 16px;
+            letter-spacing: 1px;
+          }
+        }
+
+        > .bot {
+          display: flex;
+          flex-direction: column;
+
+          > .mouse-scroll {
+            margin: 16px auto;
+            transition: opacity 0.8s ease-out;
+
+            > .mouse {
+              height: 42px;
+              width: 24px;
+              border-radius: 14px;
+              transform: none;
+              border: 2px solid white;
+              top: 170px;
+
+              > .wheel {
+                height: 5px;
+                width: 2px;
+                display: block;
+                margin: 5px auto;
+                background: white;
+                position: relative;
+
+                height: 4px;
+                width: 4px;
+                border: 2px solid #fff;
+                border-radius: 8px;
+                -webkit-border-radius: 8px;
+                -webkit-animation: mouse-wheel 0.6s linear infinite;
+                -moz-animation: mouse-wheel 0.6s linear infinite;
+                animation: mouse-wheel 0.6s linear infinite;
+              }
+            }
+
+            > .m-scroll-arrow-container {
+              > .m-scroll-arrows {
+                display: block;
+                width: 5px;
+                height: 5px;
+                -ms-transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+                border-right: 2px solid white;
+                border-bottom: 2px solid white;
+                margin: 0 0 3px 4px;
+                width: 16px;
+                height: 16px;
+              }
+
+              > .one, > .two, > .three {
+                -webkit-animation: mouse-scroll 1s infinite;
+                -moz-animation: mouse-scroll 1s infinite;
+                animation: mouse-scroll 1s infinite;
+              }
+
+              > .one {
+                margin-top: 1px;
+              }
+
+              > .one {
+                -webkit-animation-delay: .1s;
+                -moz-animation-delay: .1s;
+                -webkit-animation-direction: alternate;
+                animation-direction: alternate;
+                animation-delay: alternate;
+              }
+
+              > .two {
+                -webkit-animation-delay: .2s;
+                -moz-animation-delay: .2s;
+                -webkit-animation-direction: alternate;
+                animation-delay: .2s;
+                animation-direction: alternate;
+                margin-top: -6px;
+              }
+
+              > .three {
+                -webkit-animation-delay: .3s;
+                -moz-animation-delay: .3s;
+                -webkit-animation-direction: alternate;
+                animation-delay: .3s;
+                animation-direction: alternate;
+                margin-top: -6px;
+              }
+            }
+          }
+        }
+      }
+    }
+    */
 
     > .panel-1 {
       display: flex;

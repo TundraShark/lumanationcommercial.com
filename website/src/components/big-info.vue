@@ -4,7 +4,11 @@
         <div class="left title">{{ data.title }}</div>
         <div class="divider" />
         <div class="right">
-          <div class="card">{{ data.text }}</div>
+          <div class="card">
+            <template v-for="(obj, i) of data.text" :key="i">
+              <div class="line">{{ obj }}</div>
+            </template>
+          </div>
         </div>
       </div>
 
@@ -12,7 +16,11 @@
         <div class="top title">{{ data.title }}</div>
         <div class="divider" />
         <div class="bot">
-          <div class="card">{{ data.text }}</div>
+          <div class="card">
+            <template v-for="(obj, i) of data.text" :key="i">
+              <div class="line">{{ obj }}</div>
+            </template>
+          </div>
         </div>
       </div>
   </div>
@@ -23,7 +31,7 @@
 
   interface Data {
     title: String
-    text: String
+    text: String[]
   }
 
   const props = defineProps({
@@ -113,6 +121,13 @@ $--neutral-2: hsl(0, 0%, 95%);
       font-family: "RobotoFlex";
       line-height: 1.4;
       color: #E0E0E0;
+      text-align: left;
+
+      > .line {
+        &:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+      }
     }
 
     .title {

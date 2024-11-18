@@ -35,43 +35,6 @@
           <div class="text">Celina, TX 75009</div>
         </div>
       </div>
-
-      <!--
-        <div class="object-container">
-          <div class="icon-container">
-            <div class="icon"><svgOffice /></div>
-          </div>
-          <div class="text-container">
-            <div style="font-weight: bold;">Office</div>
-            <div>3400 Eldorado Pkwy</div>
-            <div>Suite 3</div>
-            <div>McKinney, TX 75070</div>
-          </div>
-        </div>
-
-        <div class="object-container">
-          <div class="icon-container">
-            <div class="icon"><svgMail /></div>
-          </div>
-          <div class="text-container">
-            <div style="font-weight: bold;">Mailing</div>
-            <div>2750 S Preston Road</div>
-            <div>Suite 116-259</div>
-            <div>Celina, TX 75009</div>
-          </div>
-        </div>
-
-        <div class="object-container">
-          <div class="icon-container">
-            <div class="icon"><svgWarehouse /></div>
-          </div>
-          <div class="text-container">
-            <div style="font-weight: bold;">Warehouse</div>
-            <div>1829 Choate Pkwy</div>
-            <div>Celina, TX 75009</div>
-          </div>
-        </div>
-      -->
     </div>
 
     <div class="object-container">
@@ -80,7 +43,6 @@
       </div>
       <div class="text-container">
         <div class="text">(972) 698-5227</div>
-        <!-- <div class="text">(972) 528-0512</div> -->
       </div>
     </div>
 
@@ -90,6 +52,7 @@
     <div class="object-container">
       <div class="text">
         2024 © LumaNation Commercial
+        · TDLR #37412
         · <RouterLink to="/privacy" @click.native="ScrollToTop()">Privacy</RouterLink>
         · <RouterLink to="/terms" @click.native="ScrollToTop()">Terms</RouterLink>
         · <a href="/sitemap.xml" target="_blank">Sitemap</a>
