@@ -1,11 +1,5 @@
 <template>
-  <svg height="100%" viewBox="0 0 384 512">
+  <svg height="42px" viewBox="0 0 384 512">
     <path d="M192 0c-41.8 0-77.4 26.7-90.5 64L0 64 0 512l384 0 0-448L282.5 64C269.4 26.7 233.8 0 192 0zm0 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zM112 192l160 0 16 0 0 32-16 0-160 0-16 0 0-32 16 0z" />
   </svg>
 </template>
-
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({});
-</script>

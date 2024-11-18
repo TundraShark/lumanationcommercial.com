@@ -139,3 +139,95 @@ a {
   &:hover  { background-color: hsl(200, 15%, 28%); }
   &:active { background-color: hsl(200, 15%, 15%); transform: translateY(1px); }
 }
+
+.title-red {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  color: $--accent-1;
+  font-family: "Oswald";
+  // font-size: 4rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0px 0px 5px hsl(350.69deg 96.08% 80%));
+}
+
+.title-green {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  color: $--accent-3;
+  font-family: "Oswald";
+  // font-size: 4rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+.title-1 {
+  // font-size: 4rem;
+  font-weight: bold;
+  font-family: "Oswald";
+  margin-bottom: 1rem;
+}
+
+.title-2 {
+  // font-size: 3rem;
+  font-weight: bold;
+  font-family: "Oswald";
+  margin-bottom: 1rem;
+}
+
+.title-3 {
+  // font-size: 2rem;
+  font-weight: bold;
+  font-family: "Oswald";
+  margin-bottom: 1rem;
+}
+
+.text-1, ul, ol {
+  // font-size: 1.25rem;
+  font-family: "RobotoFlex";
+  color: hsl(0, 0%, 20%);
+  margin: 0 0 1rem 0;
+}
+
+.red    { color: #ae1f24; }
+.orange { color: $--accent-2; }
+.green  { color: hsl(145 63% 36%); }
+.blue   { color: #253472; }
+.bold   { font-weight: bold;  }
+
+// .red    { color: $--accent-1; }
+// .green  { color: $--accent-3; }
+
+@media only screen and (min-width: 600px) {
+  .title-red      { font-size: 4rem; }
+  .title-green    { font-size: 4rem; }
+  .title-1        { font-size: 4rem; }
+  .title-2        { font-size: 3rem; }
+  .title-3        { font-size: 2rem; }
+  .text-1, ul, ol { font-size: 1.25rem; }
+}
+
+@media only screen and (max-width: 600px) {
+  .title-red      { font-size: 2.4rem; }
+  .title-green    { font-size: 2.4rem; }
+  .title-1        { font-size: 3rem; }
+  .title-2        { font-size: 2rem; }
+  .title-3        { font-size: 1.5rem; }
+  .text-1, ul, ol { font-size: 1rem; }
+}
+
+@media only screen and (max-width: 500px) {
+  .title-1        { font-size: 2.5rem; }
+  .title-2        { font-size: 1.75rem; }
+  .title-3        { font-size: 1.25rem; }
+}
+
+@media only screen and (max-width: 400px) {
+  .title-1        { font-size: 2rem; }
+  .title-2        { font-size: 1.5rem; }
+  .title-3        { font-size: 1.2rem; }
+}

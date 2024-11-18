@@ -1,6 +1,4 @@
 
-Make the website mobile-friendly
-
 ===== Site 1 =====
 0:00 - 0:03
 0:09 - 0:12

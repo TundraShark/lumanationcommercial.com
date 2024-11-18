@@ -90,8 +90,8 @@
     <div class="object-container">
       <div class="text">
         2024 © LumaNation Commercial
-        · <RouterLink to="/privacy">Privacy</RouterLink>
-        · <RouterLink to="/terms">Terms</RouterLink>
+        · <RouterLink to="/privacy" @click.native="ScrollToTop()">Privacy</RouterLink>
+        · <RouterLink to="/terms" @click.native="ScrollToTop()">Terms</RouterLink>
         · <a href="/sitemap.xml" target="_blank">Sitemap</a>
       </div>
     </div>
@@ -138,12 +138,15 @@
 </template>
 
 <script setup lang="ts">
-  import { defineComponent } from "vue";
   import svgLocationDot from "@/assets/svg/location-dot.vue";
   import svgPhone from "@/assets/svg/phone.vue";
   import svgMail from "@/assets/svg/mail.vue";
   import svgOffice from "@/assets/svg/office.vue";
   import svgWarehouse from "@/assets/svg/warehouse.vue";
+
+  function ScrollToTop () {
+    window.scrollTo(0, 0);
+  }
 </script>
 
 <style scoped lang="scss">
@@ -208,16 +211,12 @@ $--accent-3: #2ecc71;
         fill: $--accent-3;
       }
 
-      > .icon-text {
-
-      }
+      // > .icon-text {}
     }
 
-    > .text-container {
-      > div {
-
-      }
-    }
+    // > .text-container {
+    //   > div {}
+    // }
 
     &:not(:last-child) {
       margin-bottom: 0.75rem;
