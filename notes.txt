@@ -1,0 +1,31 @@
+They thought on the video at the very start, it goes right to the Wash Masters
+That image is OK, but have it go after the parnoramic
+
+Career Path: Lead Electrician
+  - Progress to a skilled trade as an electrician or equipment operator. Continue developing technical expertise and the electrician trade, and assisting with leading projects.
+
+Remove the green shark fin "LandShark" logo in "Our Clients"
+
+Each project should have its own dedicated page where things go more into detail
+
+Categories:
+  - Car Washes
+  - Churches
+  - Multi-unit Housing Residential
+  - Schools
+  - Retail
+  - Office / Warehouse
+
+On a project page:
+  - Project Name
+  - Category
+  - Description of the project
+  - Address
+  - Project Budget
+  - Square Footage
+
+Page for people to apply directly onto the website, instead of being redirected to a form
+
+Page dedicated to team members / staff members
+
+Dedicated page to about us

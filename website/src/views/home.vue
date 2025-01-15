@@ -274,10 +274,8 @@
           "/company-logos/snap-clean-car-wash.webp",
           "/company-logos/urban-garages.webp",
 
-          "/company-logos/landshark.png",
           "/company-logos/abg.png",
           "/company-logos/jimmy-johns.png",
-
           "/company-logos/dunkin-donuts.png"
         ],
         currentSlide: 0,
@@ -320,7 +318,7 @@
           },
           {
             title: "Lead Electrician",
-            text: "Progress to a skilled trade, such as electrician, welder, or equipment operator. Continue developing technical expertise and begin taking on more responsibilities.",
+            text: "Progress to a skilled trade as an electrician or equipment operator. Continue developing technical expertise and the electrician trade, and assisting with leading projects.",
             icon: "svgToolbox"
           },
           {
