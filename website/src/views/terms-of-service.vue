@@ -68,7 +68,7 @@
       </div>
 
       <div class="text-1">
-        <div>(972) 698-5227</div>
+        <div>(972) 528-0512</div>
         <div>info@luma-nation.com</div>
       </div>
     </div>

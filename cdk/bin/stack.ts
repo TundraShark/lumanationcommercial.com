@@ -250,7 +250,7 @@ export class Lumanation extends cdk.Stack {
     // });
 
     const cfProdWebsite = new cf.Distribution(this, "Lumanation-cf-prod-website", {
-      domainNames: ["lumanationelectric.com"],
+      domainNames: ["lumanationelectric.com", "www.lumanationelectric.com"],
       certificate: sslCertificate,
       httpVersion: cf.HttpVersion.HTTP2_AND_3,
       minimumProtocolVersion: cf.SecurityPolicyProtocol.TLS_V1_2_2021,

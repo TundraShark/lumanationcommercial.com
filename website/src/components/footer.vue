@@ -42,7 +42,7 @@
         <div class="icon"><svgPhone /></div>
       </div>
       <div class="text-container">
-        <div class="text">(972) 698-5227</div>
+        <div class="text">(972) 528-0512</div>
       </div>
     </div>
 
