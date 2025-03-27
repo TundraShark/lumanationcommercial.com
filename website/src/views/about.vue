@@ -2,6 +2,12 @@
   <div class="about">
     <div class="container">
       WIP: About Page
+
+      <!--
+        Company Overview and History
+        Details of how we do business and work WITH general contractors to fit their needs (basically outlining our relationship process)
+        Detailed Bio’s of various team members/executives/office/field leads.
+      -->
     </div>
   </div>
 </template>

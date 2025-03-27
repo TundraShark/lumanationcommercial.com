@@ -1,6 +1,8 @@
 <template>
   <Navigation />
-  <RouterView />
+  <keep-alive>
+    <RouterView />
+  </keep-alive>
   <Footer />
 </template>
 

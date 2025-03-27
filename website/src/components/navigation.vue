@@ -10,11 +10,11 @@
     </div>
 
     <div class="right">
-      <!-- <RouterLink to="/about"    active-class="active"><div class="item">About</div></RouterLink>
-      <RouterLink to="/projects" active-class="active"><div class="item">Projects</div></RouterLink>
-      <RouterLink to="/services" active-class="active"><div class="item">Services</div></RouterLink>
+      <RouterLink to="/about"    active-class="active"><div class="item">About</div></RouterLink>
+      <!-- <RouterLink to="/projects" active-class="active"><div class="item">Projects</div></RouterLink> -->
+      <RouterLink to="/service" active-class="active"><div class="item">Service</div></RouterLink>
       <RouterLink to="/careers"  active-class="active"><div class="item">Careers</div></RouterLink>
-      <RouterLink to="/contact"  active-class="active"><div class="item">Contact</div></RouterLink> -->
+      <!-- <RouterLink to="/contact"  active-class="active"><div class="item">Contact</div></RouterLink> -->
     </div>
   </div>
 </template>
@@ -98,16 +98,19 @@ export default defineComponent({
 
   > .right {
     display: flex;
-    margin-right: 12px;
+    margin-right: 16px;
+    gap: 8px;
 
     > a {
       color: inherit;
       border-radius: 8px;
       text-decoration: inherit;
-      transition: background-color 0.15s ease-out;
+      transition: all 0.2s ease-out;
+      position: relative;
 
       &:hover {
         background-color: hsla(0, 0%, 50%, 0.3);
+        transform: translateY(-2px);
       }
 
       &.active {
@@ -115,10 +118,11 @@ export default defineComponent({
       }
 
       > .item {
-        padding: 8px;
-        font-weight: bold;
+        padding: 10px 16px;
+        font-weight: normal;
         user-select: none;
-        cursor: pointer
+        cursor: pointer;
+        letter-spacing: 0.5px;
       }
     }
   }

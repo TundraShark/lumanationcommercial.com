@@ -20,7 +20,7 @@ interface Config {
 process.env.env = "prod";
 const config = yaml.load(fs.readFileSync(`config-${process.env.env}.yml`, "utf-8")) as Config;
 
-async function GetFiles(s3: any, currentPath: string, promises: PutObjects[] = []): Promise<PutObjects[]> {
+async function GetFiles(s3: any, currentPath: string, promises: PutObjects[] = [], fileList: string[] = []): Promise<{ promises: PutObjects[], fileList: string[] }> {
   for (const obj of fs.readdirSync(currentPath)) {
     const localPath = `${currentPath}/${obj}`;
     const stats: fs.Stats = await stat(localPath);
@@ -29,8 +29,12 @@ async function GetFiles(s3: any, currentPath: string, promises: PutObjects[] = [
     remotePath = remotePath.join("/");
 
     if (stats.isDirectory()) {
-      promises = await GetFiles(s3, localPath, promises);
+      const result = await GetFiles(s3, localPath, promises, fileList);
+      promises = result.promises;
+      fileList = result.fileList;
     } else {
+      fileList.push(remotePath as string);
+
       const putObject = s3.send(new PutObjectCommand({
         Bucket: config.s3Bucket,
         Key: `${remotePath}`,
@@ -43,7 +47,7 @@ async function GetFiles(s3: any, currentPath: string, promises: PutObjects[] = [
       promises.push(putObject);
     }
   }
-  return promises;
+  return { promises, fileList };
 }
 
 async function GetCloudFrontDistributionIdByCNAME(cloudFrontClient: any, cname: string): Promise<string | undefined> {
@@ -107,9 +111,30 @@ async function Main(): Promise<void> {
   }
 
   console.log("Uploading files...");
-  const promises: PutObjects[] = await GetFiles(s3, "dist");
-  await Promise.all(promises);
-  console.log("...done");
+  const { promises, fileList } = await GetFiles(s3, "dist");
+  const totalFiles = fileList.length;
+
+  let completedUploads = 0;
+  const updateProgress = () => {
+    completedUploads++;
+    const percentComplete = Math.floor((completedUploads / totalFiles) * 100);
+    process.stdout.write(`\rProgress: ${completedUploads}/${totalFiles} files (${percentComplete}% complete)`);
+
+    if (completedUploads === totalFiles) {
+      process.stdout.write("\n");
+    }
+  };
+
+  // Create an array of promises that will call updateProgress when each upload completes
+  const progressPromises = promises.map(promise =>
+    promise.then(result => {
+      updateProgress();
+      return result;
+    })
+  );
+
+  await Promise.all(progressPromises);
+  console.log("Upload complete!");
   console.log("Creating invalidation");
 
   await cloudfront.send(new CreateInvalidationCommand({

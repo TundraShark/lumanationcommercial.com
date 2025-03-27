@@ -1,4 +1,15 @@
 <template>
+  <!--
+    2. We are a full service electrical contracting company, offering competitive rates for new construction, service, maintenance, and repair, offering rapid response times by our reliable and knowledgeable electricians. Contact us today for any of your electrical needs.
+    3. 24/7 Emergency Response (delete) & input:
+
+    Our Service Process: (a way to outline our process so people know what they’re getting into up front)!
+    Easy as 1 – 2 – 3 ... (steps)
+      1. Request Service – A member of our team will contact you promptly to schedule and dispatch our technicians to your location.
+      2. Quote – Receive a comprehensive quote outlining your service options, giving you the opportunity to approve or adjust the details to fit your needs.
+      3. Completion of Work – After the job is done, you’ll have a walkthrough with our technicians to review the work completed, sign off on approval, and enjoy convenient payment options and flexible invoicing.
+        - What Our Clients Say: Either input well crafted reviews in place from actual clients, or just replace this part with google review widget
+  -->
   <div class="services">
     <div class="hero-banner">
       <div class="overlay">
@@ -15,14 +26,14 @@
         <p>Fill out the form below to request service or schedule maintenance for your facility</p>
       </div>
       <div class="container">
-        <div id="04894617-4b71-40e8-805a-00fc98174962"></div>
+        <JobberForm />
       </div>
     </div>
 
     <div class="content">
       <div class="container">
         <div class="service-intro">
-          <h2>Dedicated to Your 24/7 Service Needs</h2>
+          <h2>Dedicated to Your Service Needs</h2>
           <p>At Lumanation Commercial, we understand that electrical issues don't follow a 9-to-5 schedule. That's why our expert service team is available around the clock to handle all your commercial electrical service and maintenance needs. From emergency repairs to preventative maintenance, we're committed to keeping your business running smoothly.</p>
         </div>
 
@@ -31,8 +42,8 @@
             <div class="icon">
               <i class="fas fa-bolt"></i>
             </div>
-            <h3>24/7 Emergency Response</h3>
-            <p>When electrical emergencies strike, our team is ready to respond. With our 24-hour dispatch service, you'll always reach a live person who can quickly deploy our technicians to your location.</p>
+            <h3>Quick & Easy Communication</h3>
+            <p>When electrical emergencies arise, our team is prepared to respond swiftly. We ensure clear and dependable communication, keeping you informed every step of the way—before, during, and after the job is completed. Experience a seamless and stress-free process!</p>
           </div>
 
           <div class="highlight-item">
@@ -76,8 +87,8 @@
             </div>
 
             <div class="offering-item">
-              <h4>Infrared Thermography</h4>
-              <p>Non-invasive detection of potential electrical issues before they cause failures.</p>
+              <h4>EV Charging Stations</h4>
+              <p>LumaNation Electric is here to power up your electric vehicle charging needs. Our team of licensed and state-certified electricians is equipped to deliver high-quality installation services for your EV charging stations.</p>
             </div>
 
             <div class="offering-item">
@@ -109,33 +120,14 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, onMounted } from "vue";
+import { defineComponent } from "vue";
+import JobberForm from "@/components/JobberForm.vue";
 
-  export default defineComponent({
-    setup() {
-      onMounted(() => {
-        // Add stylesheet
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = "https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css";
-        link.media = "screen";
-        document.head.appendChild(link);
-
-        // Add script
-        const script = document.createElement("script");
-        script.src = "https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js";
-        script.setAttribute("clienthub_id", "04894617-4b71-40e8-805a-00fc98174962");
-        script.setAttribute("form_url", "https://clienthub.getjobber.com/client_hubs/04894617-4b71-40e8-805a-00fc98174962/public/work_request/embedded_work_request_form");
-        document.body.appendChild(script);
-
-        // Add Font Awesome for icons
-        const fontAwesome = document.createElement("link");
-        fontAwesome.rel = "stylesheet";
-        fontAwesome.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css";
-        document.head.appendChild(fontAwesome);
-      });
-    }
-  });
+export default defineComponent({
+  components: {
+    JobberForm
+  }
+});
 </script>
 
 <style scoped lang="scss">
@@ -148,7 +140,7 @@
   .hero-banner {
     position: relative;
     height: 500px;
-    background-image: url('/DJI_20241107062834_0005_D.JPG');
+    background-image: url("/DJI_20241107062834_0005_D.JPG");
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -183,45 +175,39 @@
     }
   }
 
-  > .form-container {
-    background-color: #f1f1f1;
-    padding-top: 16px;
+  .form-container {
+    background-color: #f5f5f5;
+    padding: 60px 0;
 
-    > .form-header {
-      display: flex;
-      flex-direction: column;
+    .form-header {
       text-align: center;
-
-      // max-width: 1200px;
-      // margin: 0 auto;
-      // padding: 0 20px;
+      margin-bottom: 30px;
 
       h2 {
         font-size: 2.5rem;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         color: #333;
       }
 
       p {
-        font-size: 1.2rem;
-        margin-bottom: 40px;
+        font-size: 1.1rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
       }
     }
 
-    > div {
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
       display: flex;
       justify-content: center;
-      // width: 100% !important;
-      height: auto;
-
-      > iframe {
-        margin: 0 16px;
-      }
     }
   }
 
   .content {
-    padding: 80px 0;
+    padding: 60px 0;
 
     .container {
       max-width: 1200px;
@@ -240,7 +226,8 @@
       }
 
       p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        color: #666;
         max-width: 800px;
         margin: 0 auto;
         line-height: 1.6;
@@ -249,37 +236,24 @@
 
     .service-highlights {
       display: flex;
-      justify-content: space-between;
       flex-wrap: wrap;
-      margin-bottom: 80px;
+      justify-content: space-between;
+      margin-bottom: 60px;
 
       .highlight-item {
         flex: 0 0 calc(33.333% - 30px);
         margin-bottom: 40px;
         text-align: center;
+        padding: 0 15px;
 
-        @media (max-width: 992px) {
-          flex: 0 0 calc(50% - 20px);
-        }
-        
-        @media (max-width: 992px) and (min-width: 577px) {
-          &:last-child:nth-child(3n) {
-            margin-left: auto;
-            margin-right: auto;
-          }
-        }
-
-        @media (max-width: 576px) {
+        @media (max-width: 768px) {
           flex: 0 0 100%;
         }
 
         .icon {
+          font-size: 3rem;
+          color: #253472;
           margin-bottom: 20px;
-
-          i {
-            font-size: 3rem;
-            color: #0056b3;
-          }
         }
 
         h3 {
@@ -290,46 +264,48 @@
 
         p {
           font-size: 1rem;
+          color: #666;
           line-height: 1.5;
         }
       }
     }
 
     .service-offerings {
-      margin-bottom: 80px;
+      margin-bottom: 60px;
 
       h2 {
         font-size: 2.5rem;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
         text-align: center;
         color: #333;
       }
 
       .offerings-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 30px;
 
-        @media (max-width: 768px) {
-          grid-template-columns: 1fr;
-        }
-
         .offering-item {
-          background-color: #f8f8f8;
-          padding: 30px;
+          background-color: #f9f9f9;
+          padding: 25px;
           border-radius: 5px;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: translateY(-5px);
+          }
 
           h4 {
             font-size: 1.3rem;
             margin-bottom: 15px;
-            color: #333;
+            color: #253472;
           }
 
           p {
             font-size: 1rem;
-            line-height: 1.5;
             color: #666;
+            line-height: 1.5;
           }
         }
       }
@@ -339,12 +315,13 @@
       h2 {
         font-size: 2.5rem;
         margin-bottom: 20px;
-        text-align: center;
         color: #333;
+        text-align: center;
       }
 
       p {
         font-size: 1.1rem;
+        color: #666;
         line-height: 1.6;
         margin-bottom: 40px;
         text-align: center;
@@ -354,10 +331,6 @@
       }
 
       .testimonials {
-        background-color: #f8f8f8;
-        padding: 50px;
-        border-radius: 5px;
-
         h3 {
           font-size: 1.8rem;
           margin-bottom: 30px;
@@ -366,16 +339,16 @@
         }
 
         .testimonial {
-          margin-bottom: 30px;
-          padding: 20px;
-          background-color: #fff;
+          background-color: #f9f9f9;
+          padding: 30px;
           border-radius: 5px;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+          margin-bottom: 30px;
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 
           p {
             font-size: 1.1rem;
             font-style: italic;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             text-align: left;
           }
 
@@ -383,21 +356,58 @@
             display: block;
             text-align: right;
             font-weight: 600;
-            color: #333;
+            color: #253472;
           }
         }
       }
     }
   }
 }
-</style>
 
-<style lang="scss">
-.services > .form-container > .container > div {
+.loading-spinner {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #253472;
+  animation: spin 1s ease-in-out infinite;
+  margin: 30px auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.form-container .container > div {
   width: 100% !important;
   margin: 0 16px;
+  position: relative;
 }
-.services > .form-container > .container > div > iframe {
-  // margin: 0 16px;
+
+@media (max-width: 768px) {
+  .services .hero-banner {
+    height: 350px;
+  }
+
+  .services .hero-banner .overlay .container h1 {
+    font-size: 2.5rem;
+  }
+
+  .services .hero-banner .overlay .container p {
+    font-size: 1.2rem;
+  }
+
+  .services .form-container .form-header h2 {
+    font-size: 2rem;
+  }
+
+  .services .content .service-intro h2,
+  .services .content .service-offerings h2,
+  .services .content .service-commitment h2 {
+    font-size: 2rem;
+  }
 }
 </style>
