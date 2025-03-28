@@ -10,10 +10,10 @@
     </div>
 
     <div class="right">
-      <RouterLink to="/about"    active-class="active"><div class="item">About</div></RouterLink>
+      <!-- <RouterLink to="/about"    active-class="active"><div class="item">About</div></RouterLink> -->
       <!-- <RouterLink to="/projects" active-class="active"><div class="item">Projects</div></RouterLink> -->
       <RouterLink to="/service" active-class="active"><div class="item">Service</div></RouterLink>
-      <RouterLink to="/careers"  active-class="active"><div class="item">Careers</div></RouterLink>
+      <!-- <RouterLink to="/careers"  active-class="active"><div class="item">Careers</div></RouterLink> -->
       <!-- <RouterLink to="/contact"  active-class="active"><div class="item">Contact</div></RouterLink> -->
     </div>
   </div>

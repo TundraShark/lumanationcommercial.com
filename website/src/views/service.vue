@@ -1,21 +1,10 @@
 <template>
-  <!--
-    2. We are a full service electrical contracting company, offering competitive rates for new construction, service, maintenance, and repair, offering rapid response times by our reliable and knowledgeable electricians. Contact us today for any of your electrical needs.
-    3. 24/7 Emergency Response (delete) & input:
-
-    Our Service Process: (a way to outline our process so people know what they’re getting into up front)!
-    Easy as 1 – 2 – 3 ... (steps)
-      1. Request Service – A member of our team will contact you promptly to schedule and dispatch our technicians to your location.
-      2. Quote – Receive a comprehensive quote outlining your service options, giving you the opportunity to approve or adjust the details to fit your needs.
-      3. Completion of Work – After the job is done, you’ll have a walkthrough with our technicians to review the work completed, sign off on approval, and enjoy convenient payment options and flexible invoicing.
-        - What Our Clients Say: Either input well crafted reviews in place from actual clients, or just replace this part with google review widget
-  -->
   <div class="services">
     <div class="hero-banner">
       <div class="overlay">
         <div class="container">
-          <h1>Service & Maintenance</h1>
-          <p>Service You Can Count On</p>
+          <!-- <h1>PLACEHOLDER</h1> -->
+          <p>We are a full service electrical contracting company, offering competitive rates for new construction, service, maintenance, and repair, offering rapid response times by our reliable and knowledgeable electricians. Contact us today for any of your electrical needs.</p>
         </div>
       </div>
     </div>
@@ -63,6 +52,41 @@
           </div>
         </div>
 
+        <div class="steps-process">
+          <h2>Easy as 1 – 2 – 3</h2>
+          <div class="steps-container">
+            <div class="step-item">
+              <div class="step-number-container">
+                <div class="step-number">1</div>
+              </div>
+              <div class="step-content">
+                <h3>Request Service</h3>
+                <p>A member of our team will contact you promptly to schedule and dispatch our technicians to your location.</p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number-container">
+                <div class="step-number">2</div>
+              </div>
+              <div class="step-content">
+                <h3>Quote</h3>
+                <p>Receive a comprehensive quote outlining your service options, giving you the opportunity to approve or adjust the details to fit your needs.</p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number-container">
+                <div class="step-number">3</div>
+              </div>
+              <div class="step-content">
+                <h3>Completion of Work</h3>
+                <p>After the job is done, you'll have a walkthrough with our technicians to review the work completed, sign off on approval, and enjoy convenient payment options and flexible invoicing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="service-offerings">
           <h2>Our Service Offerings</h2>
           <div class="offerings-grid">
@@ -104,13 +128,10 @@
 
           <div class="testimonials">
             <h3>What Our Clients Say</h3>
-            <div class="testimonial">
-              <p>"Lumanation's response time and quality of work is unmatched. Their team was professional, knowledgeable, and went above and beyond to solve our electrical issues quickly."</p>
-              <span class="client-name">— John Smith, Facility Manager</span>
-            </div>
-            <div class="testimonial">
-              <p>"We've been working with Lumanation for all our electrical service needs for years. Their technicians are always prompt, courteous, and deliver exceptional results every time."</p>
-              <span class="client-name">— Sarah Johnson, Operations Director</span>
+
+            <div v-for="testimonial in testimonials" :key="testimonial.name" class="testimonial">
+              <p v-for="quote in testimonial.quote" :key="quote">{{ quote }}</p>
+              <span class="client-name">— {{ testimonial.name }}</span>
             </div>
           </div>
         </div>
@@ -120,186 +141,189 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import JobberForm from "@/components/JobberForm.vue";
+  import { defineComponent } from "vue";
+  import JobberForm from "@/components/JobberForm.vue";
 
-export default defineComponent({
-  components: {
-    JobberForm
-  }
-});
+  const testimonials = [
+    {
+      quote: [
+        "Our business hired Lumen Lighting to replace all of the lights in our new warehouse and run power for a gate and garage door opener.",
+        "While they were there, they noticed a Federal electrical panel which is a tremendous fire hazard. They were able to correct this issue as well in a timely and cost effective manner.",
+        "These guys do outstanding work at a fair price. Give them a call!"
+      ],
+      name: "Nathan McGregor"
+    },
+    {
+      quote: [
+        "Working with these guys was simple and easy. As a long time veteran of the construction industry, it's nice to find a company and people like Ben who are trustworthy and reliable. Highly recommend."
+      ],
+      name: "Jordan Forrester"
+    },
+    {
+      quote: [
+        "They were great and easy to deal with. Added lighting in my upper cabinets. Treated us like family and recommended to everyone!"
+      ],
+      name: "Sam Hogue"
+    },
+    {
+      quote: [
+        "Great service and great work for a great price! We've had Lumen out for two very different jobs (Installing lighting in a new commercial building and renovating the electric system in a turn-of-the-century farmhouse) and both were handled with care and efficiency, with impressive follow-up to make sure everything was working correctly. I work with a lot of contractors and they're among the best in any field."
+      ],
+      name: "JMW Powell"
+    },
+    {
+      quote: [
+        "We called Lumen to come out and give us a bid to hang ceiling fans and add dimer switches in our home. Gave us a great price and was super flexible and easy to work with! Was grateful to have done business with them!"
+      ],
+      name: "Aubree Widener"
+    }
+  ];
+
+  export default defineComponent({
+    components: {
+      JobberForm
+    },
+    data() {
+      return {
+        testimonials
+      };
+    }
+  });
 </script>
 
 <style scoped lang="scss">
-.services {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 100px);
-  font-family: "RobotoFlex";
+  .services {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 100px);
+    font-family: "RobotoFlex";
 
-  .hero-banner {
-    position: relative;
-    height: 500px;
-    background-image: url("/DJI_20241107062834_0005_D.JPG");
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      display: flex;
-      align-items: center;
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        color: #ffffff;
-
-        h1 {
-          font-size: 3.5rem;
-          margin-bottom: 20px;
-          font-weight: 700;
-        }
-
-        p {
-          font-size: 1.5rem;
-          max-width: 600px;
-        }
-      }
-    }
-  }
-
-  .form-container {
-    background-color: #f5f5f5;
-    padding: 60px 0;
-
-    .form-header {
+    .hero-banner {
+      position: relative;
+      height: 500px;
+      background-image: url("@/assets/service-page-banner.jpg");
+      background-size: cover;
+      background-position: center;
       text-align: center;
-      margin-bottom: 30px;
 
-      h2 {
-        font-size: 2.5rem;
-        margin-bottom: 15px;
-        color: #333;
-      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
 
-      p {
-        font-size: 1.1rem;
-        color: #666;
-        max-width: 600px;
-        margin: 0 auto;
-      }
-    }
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+          color: #ffffff;
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      justify-content: center;
-    }
-  }
+          h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+          }
 
-  .content {
-    padding: 60px 0;
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .service-intro {
-      text-align: center;
-      margin-bottom: 60px;
-
-      h2 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        color: #333;
-      }
-
-      p {
-        font-size: 1.1rem;
-        color: #666;
-        max-width: 800px;
-        margin: 0 auto;
-        line-height: 1.6;
+          p {
+            font-size: 1.5rem;
+            max-width: 600px;
+          }
+        }
       }
     }
 
-    .service-highlights {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin-bottom: 60px;
+    .form-container {
+      background-color: #f5f5f5;
+      padding: 60px 0;
 
-      .highlight-item {
-        flex: 0 0 calc(33.333% - 30px);
-        margin-bottom: 40px;
+      .form-header {
         text-align: center;
-        padding: 0 15px;
+        margin-bottom: 30px;
 
-        @media (max-width: 768px) {
-          flex: 0 0 100%;
-        }
-
-        .icon {
-          font-size: 3rem;
-          color: #253472;
-          margin-bottom: 20px;
-        }
-
-        h3 {
-          font-size: 1.5rem;
+        h2 {
+          font-size: 2.5rem;
           margin-bottom: 15px;
           color: #333;
         }
 
         p {
-          font-size: 1rem;
+          font-size: 1.1rem;
           color: #666;
-          line-height: 1.5;
+          max-width: 600px;
+          margin: 0 auto;
         }
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: center;
       }
     }
 
-    .service-offerings {
-      margin-bottom: 60px;
+    .content {
+      padding: 60px 0;
 
-      h2 {
-        font-size: 2.5rem;
-        margin-bottom: 30px;
-        text-align: center;
-        color: #333;
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
       }
 
-      .offerings-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 30px;
+      .service-intro {
+        text-align: center;
+        margin-bottom: 60px;
 
-        .offering-item {
-          background-color: #f9f9f9;
-          padding: 25px;
-          border-radius: 5px;
-          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-          transition: transform 0.3s ease;
+        h2 {
+          font-size: 2.5rem;
+          margin-bottom: 20px;
+          color: #333;
+        }
 
-          &:hover {
-            transform: translateY(-5px);
+        p {
+          font-size: 1.1rem;
+          color: #666;
+          line-height: 1.6;
+          margin-bottom: 40px;
+          text-align: center;
+          max-width: 800px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      .service-highlights {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 60px;
+
+        .highlight-item {
+          flex: 0 0 calc(33.333% - 30px);
+          margin-bottom: 40px;
+          text-align: center;
+          padding: 0 15px;
+
+          @media (max-width: 768px) {
+            flex: 0 0 100%;
           }
 
-          h4 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+          .icon {
+            font-size: 3rem;
             color: #253472;
+            margin-bottom: 20px;
+          }
+
+          h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
           }
 
           p {
@@ -309,105 +333,261 @@ export default defineComponent({
           }
         }
       }
-    }
 
-    .service-commitment {
-      h2 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        color: #333;
-        text-align: center;
+      .steps-process {
+        margin: 60px auto;
+        max-width: 800px;
+        padding: 0 20px;
+        background-color: transparent;
+
+        h2 {
+          font-size: 2.5rem;
+          margin-bottom: 40px;
+          text-align: center;
+          color: #333;
+        }
+
+        .steps-container {
+          position: relative;
+          padding: 20px 0;
+
+          &::before {
+            display: none; /* Hide the continuous line */
+          }
+
+          .vertical-line {
+            display: none; /* Hide the separate vertical lines */
+          }
+
+          .step-item {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 0;
+
+            &:not(:last-child)::after {
+              content: '';
+              position: absolute;
+              top: 21px; /* Align with the center of the number */
+              left: 20px;
+              height: calc(100% + 30px); /* Extend to properly connect to the next number */
+              width: 2px;
+              background-color: #253472;
+              z-index: 1;
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            .step-number-container {
+              position: relative;
+              width: 60px;
+              flex-shrink: 0;
+              z-index: 2;
+
+              .step-number {
+                width: 42px;
+                height: 42px;
+                background-color: #253472;
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                font-weight: bold;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                position: absolute;
+                left: 0;
+                top: 5px;
+              }
+            }
+
+            .step-content {
+              flex: 1;
+              padding-top: 0;
+              padding-left: 15px;
+              padding-bottom: 30px;
+
+              h3 {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+                color: #333;
+                font-weight: 600;
+                margin-top: 8px;
+              }
+
+              p {
+                font-size: 1rem;
+                color: #666;
+                line-height: 1.5;
+              }
+            }
+          }
+        }
+
+        @media (max-width: 768px) {
+          .steps-container {
+            .step-item {
+              .step-number-container {
+                width: 50px;
+
+                .step-number {
+                  width: 38px;
+                  height: 38px;
+                  font-size: 1.3rem;
+                }
+              }
+            }
+          }
+        }
       }
 
-      p {
-        font-size: 1.1rem;
-        color: #666;
-        line-height: 1.6;
-        margin-bottom: 40px;
-        text-align: center;
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
-      }
+      .service-offerings {
+        margin-bottom: 60px;
 
-      .testimonials {
-        h3 {
-          font-size: 1.8rem;
+        h2 {
+          font-size: 2.5rem;
           margin-bottom: 30px;
           text-align: center;
           color: #333;
         }
 
-        .testimonial {
-          background-color: #f9f9f9;
-          padding: 30px;
-          border-radius: 5px;
-          margin-bottom: 30px;
-          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        .offerings-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 30px;
 
-          p {
-            font-size: 1.1rem;
-            font-style: italic;
-            margin-bottom: 15px;
-            text-align: left;
+          .offering-item {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+
+            &:hover {
+              transform: translateY(-5px);
+            }
+
+            h4 {
+              font-size: 1.3rem;
+              margin-bottom: 15px;
+              color: #253472;
+            }
+
+            p {
+              font-size: 1rem;
+              color: #666;
+              line-height: 1.5;
+            }
+          }
+        }
+      }
+
+      .service-commitment {
+        h2 {
+          font-size: 2.5rem;
+          margin-bottom: 20px;
+          color: #333;
+          text-align: center;
+        }
+
+        p {
+          font-size: 1.1rem;
+          color: #666;
+          line-height: 1.6;
+          margin-bottom: 40px;
+          text-align: center;
+          max-width: 900px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .testimonials {
+          h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #333;
           }
 
-          .client-name {
-            display: block;
-            text-align: right;
-            font-weight: 600;
-            color: #253472;
+          .testimonial {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+
+            p {
+              font-size: 1.1rem;
+              font-style: italic;
+              margin-bottom: 15px;
+              text-align: left;
+            }
+
+            .client-name {
+              display: block;
+              text-align: right;
+              font-weight: 600;
+              color: #253472;
+            }
           }
         }
       }
     }
   }
-}
 
-.loading-spinner {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  border: 3px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
-  border-top-color: #253472;
-  animation: spin 1s ease-in-out infinite;
-  margin: 30px auto;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.form-container .container > div {
-  width: 100% !important;
-  margin: 0 16px;
-  position: relative;
-}
-
-@media (max-width: 768px) {
-  .services .hero-banner {
-    height: 350px;
+  .loading-spinner {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: #253472;
+    animation: spin 1s ease-in-out infinite;
+    margin: 30px auto;
   }
 
-  .services .hero-banner .overlay .container h1 {
-    font-size: 2.5rem;
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
   }
 
-  .services .hero-banner .overlay .container p {
-    font-size: 1.2rem;
+  .form-container .container > div {
+    width: 100% !important;
+    margin: 0 16px;
+    position: relative;
   }
 
-  .services .form-container .form-header h2 {
-    font-size: 2rem;
-  }
+  @media (max-width: 768px) {
+    .services .hero-banner {
+      height: 350px;
+    }
 
-  .services .content .service-intro h2,
-  .services .content .service-offerings h2,
-  .services .content .service-commitment h2 {
-    font-size: 2rem;
+    .services .hero-banner .overlay .container h1 {
+      font-size: 2.5rem;
+    }
+
+    .services .hero-banner .overlay .container p {
+      font-size: 1.2rem;
+    }
+
+    .services .form-container .form-header h2 {
+      font-size: 2rem;
+    }
+
+    .services .content .service-intro h2,
+    .services .content .service-offerings h2,
+    .services .content .service-commitment h2 {
+      font-size: 2rem;
+    }
   }
-}
+</style>
+
+<style>
+  iframe {
+    width: 100%;
+  }
 </style>
