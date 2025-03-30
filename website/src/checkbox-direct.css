@@ -1,0 +1,23 @@
+/* Direct checkbox styling */
+.p-checkbox-box.p-highlight {
+  background-color: #2196f3 !important;
+  border-color: #2196f3 !important;
+}
+
+.p-checkbox-box.p-highlight svg path {
+  fill: #ffffff !important;
+}
+
+.p-checkbox-box.p-highlight .p-checkbox-icon {
+  color: #ffffff !important;
+}
+
+/* Target the specific SVG path */
+.p-checkbox-box.p-highlight svg[data-pc-section="icon"] path {
+  fill: #ffffff !important;
+}
+
+/* Additional specificity */
+.p-checkbox-checked .p-checkbox-box svg path[fill="currentColor"] {
+  fill: #ffffff !important;
+}

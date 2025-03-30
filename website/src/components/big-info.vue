@@ -49,7 +49,7 @@ $--primary-2: #2c2c2c;
 $--primary-3: #1c2a3e;
 
 // 2. Accent Colors:
-$--accent-1: #fa052b;
+$--accent-1: #253472;
 $--accent-2: #ffc300;
 $--accent-3: #2ecc71;
 

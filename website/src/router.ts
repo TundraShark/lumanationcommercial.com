@@ -3,10 +3,12 @@ import Home from "./views/home.vue";
 import About from "./views/about.vue";
 import Projects from "./views/projects.vue";
 import Service from "./views/service.vue";
+import ServiceNew from "./views/service-new.vue";
 import Careers from "./views/careers.vue";
 import Contact from "./views/contact.vue";
 import PrivacyPolicy from "./views/privacy-policy.vue";
 import TermsOfService from "./views/terms-of-service.vue";
+import DoNotSell from "./views/do-not-sell.vue";
 import NotFound from "./views/not-found.vue";
 import Secret from "./views/secret.vue";
 
@@ -34,6 +36,10 @@ const router = createRouter({
       name: "Service",
       component: Service
     }, {
+      path: "/service-new",
+      name: "ServiceNew",
+      component: ServiceNew
+    }, {
       path: "/careers",
       name: "Careers",
       component: Careers
@@ -49,6 +55,10 @@ const router = createRouter({
       path: "/terms",
       name: "TermsOfService",
       component: TermsOfService
+    }, {
+      path: "/do-not-sell",
+      name: "DoNotSell",
+      component: DoNotSell
     }, {
       path: "/:pathMatch(.*)*",
       name: "NotFound",

@@ -1,0 +1,33 @@
+/* White Checkmark Styles */
+.p-checkbox-box.p-highlight svg path {
+  fill: white !important;
+  stroke: white !important;
+  stroke-width: 0.5 !important;
+}
+
+.p-checkbox-box.p-highlight .p-checkbox-icon {
+  color: white !important;
+  font-weight: bold !important;
+}
+
+/* Force all SVG elements inside checked checkboxes to be white */
+.p-checkbox-checked svg * {
+  fill: white !important;
+  color: white !important;
+  stroke: white !important;
+  stroke-width: 0.5 !important;
+}
+
+/* Additional selector targeting the specific path */
+.p-checkbox-box.p-highlight svg[data-pc-section="icon"] path {
+  fill: white !important;
+  stroke: white !important;
+  stroke-width: 0.5 !important;
+}
+
+/* Make the SVG icon slightly larger */
+.p-checkbox-box.p-highlight svg {
+  transform: scale(1.1) !important;
+  width: 16px !important;
+  height: 16px !important;
+}

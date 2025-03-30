@@ -1,103 +1,109 @@
 <template>
   <div class="component-footer">
-    <div class="expand">
-      <div class="object-container-2">
-        <div class="top">
-          <div class="icon"><svgOffice /></div>
-          <div class="text">Office</div>
-        </div>
-        <div class="bot">
-          <div class="text">3400 Eldorado Pkwy</div>
-          <div class="text">Suite 3</div>
-          <div class="text">McKinney, TX 75070</div>
-        </div>
-      </div>
-
-      <div class="object-container-2">
-        <div class="top">
-          <div class="icon"><svgMail /></div>
-          <div class="text">Mailing</div>
-        </div>
-        <div class="bot">
-          <div class="text">2750 S Preston Road</div>
-          <div class="text">Suite 116-259</div>
-          <div class="text">Celina, TX 75009</div>
+    <div class="footer-sections">
+      <div class="footer-section navigation">
+        <div class="section-title">Navigation</div>
+        <div class="section-links">
+          <!-- <RouterLink to="/about" @click.native="ScrollToTop()">About</RouterLink> -->
+          <!-- <RouterLink to="/projects" @click.native="ScrollToTop()">Projects</RouterLink> -->
+          <RouterLink to="/services" @click.native="ScrollToTop()">Service</RouterLink>
+          <RouterLink to="/careers" @click.native="ScrollToTop()">Careers</RouterLink>
+          <!-- <RouterLink to="/employees" @click.native="ScrollToTop()">Employees</RouterLink> -->
+          <RouterLink to="/contact" @click.native="ScrollToTop()">Contact</RouterLink>
         </div>
       </div>
 
-      <div class="object-container-2">
-        <div class="top">
-          <div class="icon"><svgWarehouse /></div>
-          <div class="text">Warehouse</div>
+      <div class="footer-section connect">
+        <div class="section-title">Connect With Us</div>
+        <div class="section-links">
+          <a href="https://www.linkedin.com/company/lumanation/?viewAsMember=true" target="_blank">LinkedIn</a>
+          <a href="https://www.facebook.com/LumaNationLED" target="_blank">Facebook</a>
+          <a href="https://g.co/kgs/YZA8dJT" target="_blank">Google Profile</a>
+          <!-- <a href="https://twitter.com/lumanation" target="_blank">X/Twitter</a> -->
         </div>
-        <div class="bot">
-          <div class="text">1829 Choate Pkwy</div>
-          <div class="text">Celina, TX 75009</div>
+      </div>
+
+      <div class="footer-section privacy">
+        <div class="section-title">Privacy and Use</div>
+        <div class="section-links">
+          <RouterLink to="/privacy" @click.native="ScrollToTop()">Privacy</RouterLink>
+          <RouterLink to="/terms" @click.native="ScrollToTop()">Terms</RouterLink>
+          <RouterLink to="/do-not-sell" @click.native="ScrollToTop()">Do Not Sell</RouterLink>
+        </div>
+      </div>
+
+      <div class="footer-section contact-info">
+        <div class="section-title">FAQ/Contact Us</div>
+        <div class="expand">
+          <div class="object-container-2">
+            <div class="top">
+              <div class="icon"><svgOffice /></div>
+              <div class="text">Office/Mailing</div>
+            </div>
+            <div class="bot">
+              <div class="text">3400 Eldorado Pkwy</div>
+              <div class="text">Suite 3</div>
+              <div class="text">McKinney, TX 75070</div>
+            </div>
+          </div>
+
+          <div class="object-container-2">
+            <div class="top">
+              <div class="icon"><svgWarehouse /></div>
+              <div class="text">Warehouse</div>
+            </div>
+            <div class="bot">
+              <div class="text">1822 County Road 88</div>
+              <div class="text">Celina, TX 75009</div>
+            </div>
+          </div>
+
+          <div class="object-container-2">
+            <div class="top">
+              <div class="icon"><svgMail /></div>
+              <div class="text">Email</div>
+            </div>
+            <div class="bot">
+              <div class="text">info@LumanationElectric.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-section phone-numbers">
+        <div class="section-title">Phone Numbers</div>
+        <div class="phone-list">
+          <div class="phone-item">
+            <div class="phone-label">Main Line</div>
+            <div class="phone-number">(972) 528-0512</div>
+          </div>
+          <div class="phone-item">
+            <div class="phone-label">Service</div>
+            <div class="phone-number">(972) 777-4207</div>
+          </div>
+          <div class="phone-item">
+            <div class="phone-label">Business Development</div>
+            <div class="phone-number">(972) 698-5227</div>
+          </div>
+          <div class="phone-item">
+            <div class="phone-label">Operations</div>
+            <div class="phone-number">(972) 777-4193</div>
+          </div>
+          <div class="phone-item">
+            <div class="phone-label">Human Resources</div>
+            <div class="phone-number">(972) 982-7307</div>
+          </div>
+          <div class="phone-item">
+            <div class="phone-label">Accounting</div>
+            <div class="phone-number">(972) 913-2901</div>
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="object-container">
-      <div class="icon-container">
-        <div class="icon"><svgPhone /></div>
-      </div>
-      <div class="text-container">
-        <div class="text">(972) 528-0512</div>
-      </div>
+    <div class="footer-copyright">
+      {{ currentYear }} LumaNation Commercial TDLR #37412
     </div>
-
-    <div class="object-container">
-    </div>
-
-    <div class="object-container">
-      <div class="text">
-        2024 © LumaNation Commercial
-        · TDLR #37412
-        · <RouterLink to="/privacy" @click.native="ScrollToTop()">Privacy</RouterLink>
-        · <RouterLink to="/terms" @click.native="ScrollToTop()">Terms</RouterLink>
-        · <a href="/sitemap.xml" target="_blank">Sitemap</a>
-      </div>
-    </div>
-
-    <!--
-      Addresses:
-      Office: 3400 Eldorado Pkwy
-      Suite 3
-      McKinney, TX 75070
-
-      Mailing: 2750 S Preston Road
-      Suite 116-259
-      Celina, TX 75009
-
-      Warehouse: 1829 Choate Pkwy
-      Celina, TX 75009
-
-      Main Phone Line: 972-528-0512
-      info@luma-nation.com
-      sales@luma-nation.com
-    -->
   </div>
-
-  <!--
-    Info at bottom of website footer home page
-    -Navigation links
-
-    Addresses:
-    Office: 3400 Eldorado Pkwy
-    Suite 3
-    McKinney, TX 75070
-
-    Mailing: 2750 S Preston Road
-    Suite 116-259
-    Celina, TX 75009
-
-    Warehouse: 1829 Choate Pkwy
-    Celina, TX 75009
-
-    Main Phone Line: 972-528-0512
-    info@luma-nation.com
-    sales@luma-nation.com
-  -->
 </template>
 
 <script setup lang="ts">
@@ -110,10 +116,12 @@
   function ScrollToTop () {
     window.scrollTo(0, 0);
   }
+
+  const currentYear = new Date().getFullYear();
 </script>
 
 <style scoped lang="scss">
-$--accent-1: #fa052b;
+$--accent-1: #253472;
 $--accent-2: #ffc300;
 $--accent-3: #2ecc71;
 
@@ -124,90 +132,190 @@ $--accent-3: #2ecc71;
   font-family: "RobotoFlex";
   background-color: hsl(200, 15%, 25%);
   color: #fff;
-  padding: 2rem;
 
-  .expand {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 0.75rem;
-  }
-
-  .object-container-2 {
+  .footer-sections {
     display: flex;
     flex-direction: column;
-
-    > .top {
-      display: flex;
-      margin-bottom: 0.25rem;
-
-      > .icon {
-        height: 32px;
-        margin-right: 0.5rem;
-        fill: $--accent-3;
-      }
-
-      > .text {
-        display: flex;
-        align-items: center;
-        font-weight: bold;
-      }
-    }
-
-    > .bot {
-      display: flex;
-      flex-direction: column;
-    }
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem 4rem;
   }
 
-  .object-container {
-    display: flex;
-    align-items: center;
+  .footer-section {
+    width: 100%;
+    max-width: 600px;
+    // margin-bottom: 1.5rem;
 
-    > .icon-container {
-      // width: 40px;
-
-      > .icon {
-        // width: 32px;
-        height: 32px;
-        margin-right: 0.5rem;
-        fill: $--accent-3;
-      }
-
-      // > .icon-text {}
+    .section-title {
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      font-size: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      text-align: left;
     }
 
-    // > .text-container {
-    //   > div {}
-    // }
-
-    &:not(:last-child) {
-      margin-bottom: 0.75rem;
-    }
-  }
-
-  a {
-    color: $--accent-3;
-
-    &:hover { text-decoration: underline; }
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .component-footer {
-    .expand {
+    .section-links {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
 
-      .object-container-2 {
-        &:not(:last-child) {
-          margin-bottom: 0.75rem;
+      a {
+        color: $--accent-3;
+        margin-bottom: 0.75rem;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        padding: 0 0.5rem;
+
+        &:hover {
+          text-decoration: underline;
+          color: lighten($--accent-3, 10%);
         }
       }
     }
   }
-}
 
-@media only screen and (min-width: 800px) {
+  .contact-info {
+    .expand {
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .object-container-2 {
+      flex: 0 1 auto;
+      text-align: left;
+      margin-bottom: 1rem;
+
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 0.5rem;
+
+        .icon {
+          height: 24px;
+          width: 24px;
+          margin-right: 0.5rem;
+          fill: $--accent-3;
+        }
+
+        .text {
+          font-weight: bold;
+          font-size: 0.9rem;
+        }
+      }
+
+      .bot {
+        font-size: 0.85rem;
+        color: rgba(255,255,255,0.8);
+      }
+    }
+  }
+
+  .phone-numbers {
+    .phone-list {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+
+      .phone-item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        max-width: 360px;
+
+        .phone-label {
+          font-weight: bold;
+          color: $--accent-3;
+          flex: 0 0 auto;
+          text-align: left;
+          min-width: 175px;
+        }
+
+        .phone-number {
+          flex: 1;
+          text-align: left;
+          color: rgba(255,255,255,0.8);
+        }
+      }
+    }
+  }
+
+  .footer-copyright {
+    width: 100%;
+    text-align: left;
+    padding: 1rem 4rem;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    background-color: rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  @media only screen and (max-width: 768px) {
+    .footer-sections {
+      padding: 2rem 1rem;
+      align-items: center;
+    }
+
+    .footer-section {
+      max-width: 100%;
+
+      .section-title {
+        text-align: center;
+      }
+
+      .section-links {
+        justify-content: center;
+      }
+    }
+
+    .contact-info {
+      .expand {
+        justify-content: center;
+      }
+
+      .object-container-2 {
+        text-align: center;
+
+        .top {
+          justify-content: center;
+        }
+      }
+    }
+
+    .phone-numbers {
+      .phone-list {
+        align-items: center;
+
+        .phone-item {
+          flex-direction: column;
+          text-align: center;
+
+          .phone-label {
+            text-align: center;
+            min-width: auto;
+          }
+
+          .phone-number {
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    .footer-copyright {
+      text-align: center;
+      padding: 1rem;
+    }
+  }
 }
 </style>

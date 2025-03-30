@@ -53,7 +53,7 @@
         </div>
 
         <div class="steps-process">
-          <h2>Easy as 1 – 2 – 3</h2>
+          <h2>Three steps, one goal</h2>
           <div class="steps-container">
             <div class="step-item">
               <div class="step-number-container">
@@ -128,11 +128,12 @@
 
           <div class="testimonials">
             <h3>What Our Clients Say</h3>
+            <GoogleReviews />
 
-            <div v-for="testimonial in testimonials" :key="testimonial.name" class="testimonial">
+            <!-- <div v-for="testimonial in testimonials" :key="testimonial.name" class="testimonial">
               <p v-for="quote in testimonial.quote" :key="quote">{{ quote }}</p>
               <span class="client-name">— {{ testimonial.name }}</span>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -143,6 +144,7 @@
 <script lang="ts">
   import { defineComponent } from "vue";
   import JobberForm from "@/components/JobberForm.vue";
+  import GoogleReviews from "@/components/GoogleReviews.vue";
 
   const testimonials = [
     {
@@ -181,7 +183,8 @@
 
   export default defineComponent({
     components: {
-      JobberForm
+      JobberForm,
+      GoogleReviews
     },
     data() {
       return {
@@ -197,6 +200,7 @@
     flex-direction: column;
     min-height: calc(100vh - 100px);
     font-family: "RobotoFlex";
+    padding: 8rem 0 4rem 0;
 
     .hero-banner {
       position: relative;

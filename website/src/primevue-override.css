@@ -1,0 +1,19 @@
+/* PrimeVue Component Overrides */
+
+/* Checkbox styling */
+.p-checkbox .p-checkbox-box.p-highlight {
+  background: #2196f3 !important;
+  border-color: #2196f3 !important;
+}
+
+.p-checkbox .p-checkbox-box.p-highlight .p-checkbox-icon {
+  color: #ffffff !important;
+}
+
+.p-checkbox .p-checkbox-box.p-highlight svg {
+  color: #ffffff !important;
+}
+
+.p-checkbox .p-checkbox-box.p-highlight svg path {
+  fill: #ffffff !important;
+}

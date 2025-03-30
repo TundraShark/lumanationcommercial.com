@@ -1,0 +1,197 @@
+/* PrimeVue Calendar Styles */
+.p-datepicker {
+  background: #ffffff !important;
+  border: 2px solid #2196f3 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  padding: 0.75rem !important;
+  z-index: 1000 !important;
+  font-family: "RobotoFlex", sans-serif !important;
+  color: #333 !important;
+  opacity: 1 !important;
+}
+
+.p-datepicker-panel {
+  background: #ffffff !important;
+  opacity: 1 !important;
+  position: absolute !important;
+  z-index: 1000 !important;
+  border: 2px solid #2196f3 !important;
+  border-radius: 4px !important;
+}
+
+.p-datepicker-header {
+  padding: 0.5rem !important;
+  border-bottom: 1px solid #e9ecef !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 0.5rem !important;
+  background-color: #ffffff !important;
+}
+
+.p-datepicker-title {
+  text-align: center !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  margin: 0 0.5rem !important;
+}
+
+.p-datepicker-month:after {
+  content: " " !important;
+  white-space: pre !important;
+}
+
+.p-datepicker-calendar {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  background-color: #ffffff !important;
+}
+
+.p-datepicker-calendar th {
+  padding: 0.5rem !important;
+  text-align: center !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  color: #495057 !important;
+  background-color: #ffffff !important;
+}
+
+.p-datepicker-calendar td {
+  padding: 0.25rem !important;
+  text-align: center !important;
+  background-color: #ffffff !important;
+  cursor: pointer !important;
+}
+
+.p-datepicker-calendar td > span {
+  width: 2.25rem !important;
+  height: 2.25rem !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s !important;
+  font-size: 0.875rem !important;
+  background-color: #ffffff !important;
+  pointer-events: auto !important;
+}
+
+.p-datepicker-calendar td > span:hover {
+  background-color: #e9ecef !important;
+}
+
+.p-datepicker-calendar td.p-datepicker-today > span {
+  background-color: #f8f9fa !important;
+  border: 1px solid #2196f3 !important;
+}
+
+.p-datepicker-calendar td.p-highlight > span {
+  background-color: #2196f3 !important;
+  color: #ffffff !important;
+}
+
+.p-datepicker-next,
+.p-datepicker-prev {
+  cursor: pointer !important;
+  padding: 0.5rem !important;
+  border-radius: 4px !important;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #495057 !important;
+  background-color: transparent !important;
+}
+
+.p-datepicker-next:hover,
+.p-datepicker-prev:hover {
+  background-color: #e9ecef !important;
+}
+
+/* Month/Year Picker */
+.p-monthpicker,
+.p-yearpicker {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 0.5rem !important;
+  background-color: #ffffff !important;
+}
+
+.p-monthpicker .p-monthpicker-month,
+.p-yearpicker .p-yearpicker-year {
+  padding: 0.5rem !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  border-radius: 4px !important;
+  transition: background-color 0.2s, color 0.2s !important;
+  background-color: #ffffff !important;
+}
+
+.p-monthpicker .p-monthpicker-month:hover,
+.p-yearpicker .p-yearpicker-year:hover {
+  background-color: #e9ecef !important;
+}
+
+.p-monthpicker .p-highlight,
+.p-yearpicker .p-highlight {
+  background-color: #2196f3 !important;
+  color: #ffffff !important;
+}
+
+/* Calendar Input Styling */
+.p-calendar {
+  width: 100% !important;
+  display: inline-flex !important;
+}
+
+.p-calendar .p-inputtext {
+  flex: 1 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.p-calendar .p-datepicker-trigger {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  background-color: #2196f3 !important;
+  border-color: #2196f3 !important;
+  color: white !important;
+}
+
+.p-calendar .p-datepicker-trigger:hover {
+  background-color: #1976d2 !important;
+  border-color: #1976d2 !important;
+}
+
+/* Other month dates styling */
+.p-datepicker-other-month {
+  opacity: 0.5 !important;
+}
+
+/* Disabled dates */
+.p-disabled {
+  opacity: 0.5 !important;
+  pointer-events: none !important;
+}
+
+/* Today button */
+.p-datepicker-buttonbar {
+  padding-top: 0.75rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  border-top: 1px solid #e9ecef !important;
+  margin-top: 0.5rem !important;
+  background-color: #ffffff !important;
+}
+
+.p-datepicker-buttonbar button {
+  padding: 0.5rem 0.75rem !important;
+  background-color: #f8f9fa !important;
+  border: 1px solid #ced4da !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  font-size: 0.875rem !important;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s !important;
+}

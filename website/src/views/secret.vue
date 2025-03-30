@@ -1,5 +1,5 @@
 <template>
-  <div class="home-page">
+  <div class="home-page-secret">
     <div class="video-container" :style="{height: videoHeight}">
       <video autoplay nocontrols muted playsinline loop :style="{left: (videoFullSize ? videoLeft : '0')}" :class="(videoFullSize ? 'fullsize' : '')">
         <source src="/home-page-montage.mp4" type="video/mp4">
@@ -460,7 +460,7 @@
   $--primary-3: #1c2a3e;
 
   // 2. Accent Colors:
-  $--accent-1: #fa052b;
+  $--accent-1: #253472;
   $--accent-2: #ffc300;
   $--accent-3: #2ecc71;
 
@@ -472,7 +472,7 @@
     display: flex;
   }
 
-  .home-page {
+  .home-page-secret {
     > .video-container {
       margin: auto;
       width: 100%;
@@ -912,7 +912,7 @@
   }
 </style>
 
-<style lang="scss">
+<style scoped lang="scss">
   // 1. Primary Colors:
   $--primary-1: #4b4b4b;
   $--primary-2: #2c2c2c;
@@ -920,7 +920,7 @@
   $--primary-4: hsl(0 0% 90% / 1);
 
   // 2. Accent Colors:
-  $--accent-1: #fa052b;
+  $--accent-1: #253472;
   $--accent-2: #ffc300;
   $--accent-3: #2ecc71;
 

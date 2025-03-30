@@ -26,7 +26,7 @@
     </div>
 
     <div class="section">
-      <div class="title-red">Recent Projects</div>
+      <div class="title-green">Recent Projects</div>
 
       <div class="projects-container">
         <template v-for="(obj, i) of projects" :key="i">
@@ -46,7 +46,7 @@
     </div>
 
     <div class="section">
-      <div class="title-red">Meet Our Team</div>
+      <div class="title-green">Meet Our Team</div>
 
       <div class="team-container">
         <template v-for="(obj, i) of meetOurTeam" :key="i">
@@ -69,7 +69,7 @@
     </div>
 
     <div class="section">
-      <div class="title-red">Career Path</div>
+      <div class="title-green">Career Path</div>
 
       <div class="career-path-container desktop">
         <Timeline :value="careerPath" align="alternate" class="customized-timeline">
@@ -109,7 +109,7 @@
     </div>
 
     <div class="section-2">
-      <div class="title-green">We're always hiring!</div>
+      <div class="title-green-neon">We're always hiring!</div>
 
       <a href="https://forms.monday.com/forms/2508cf20417e001e8c04ec60a52e4945" target="_blank">
         <div class="button-1">Check Open Positions</div>
@@ -117,7 +117,7 @@
     </div>
 
     <div class="section-carousel">
-      <div class="title-red">Our Clients</div>
+      <div class="title-green">Our Clients</div>
 
       <div id="gallery-carousel-container">
         <div id="carousel" class="f-carousel">
@@ -132,12 +132,12 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
   import "@fancyapps/ui/dist/carousel/carousel.thumbs.css";
   import "@fancyapps/ui/dist/carousel/carousel.css";
   import "@fancyapps/ui/dist/fancybox/fancybox.css";
   import "@fancyapps/ui/dist/carousel/carousel.autoplay.css";
-  import { defineComponent } from "vue";
+  import { ref, onMounted, onUnmounted } from "vue";
   import { Autoplay } from "@fancyapps/ui/dist/carousel/carousel.autoplay.esm.js";
   import { Carousel } from "@fancyapps/ui/dist/carousel/carousel.esm.js";
   import { Fancybox } from "@fancyapps/ui/dist/fancybox/fancybox.esm.js";
@@ -148,245 +148,224 @@
   import svgWrench from "@/assets/svg/wrench.vue";
   import bigInfo from "@/components/big-info.vue";
 
-  export default defineComponent({
-    components: {
-      Timeline: Timeline as any,
-      svgClipboard,
-      svgToolbox,
-      svgUserTie,
-      svgWrench,
-      bigInfo
+  // Data properties
+  const videoHeight = ref("100vh");
+  const videoFullSize = ref(true);
+  const videoLeft = ref("0");
+  const mouseScrollOpacity = ref("1");
+  const currentSlide = ref(0);
+  const previousSlide = ref(-1);
+
+  const mission = {
+    title: "Mission",
+    text: [`To be the preferred "go to" resource for our clients for all electrical service initiatives. Embodied through a collaborative relationship that is effective, efficient and continually produces the desired results. Less about the transaction, but more about understanding our business partners' needs and demands, overcoming challenges and exceeding their daily expectations.`]
+  };
+
+  const statement = {
+    title: "Statement",
+    text: [`Here at LumaNation Commercial LLC our mission is to uphold the highest standards of quality, integrity, teamwork, and safety. We are dedicated to delivering exceptional services while maintaining unwavering commitment and support in all our interactions. Through collaboration and teamwork, we strive to exceed expectations, fostering an environment where innovation and excellence thrive. Our values form the foundation of our commitment to excellence, guiding every aspect of our operations as we work together to achieve shared success.`]
+  };
+
+  const values = {
+    title: "Values",
+    text: [
+      `God: We view our work as a calling to reflect Christ's love and integrity, striving for excellence to glorify Him and serve others.`,
+      `Commitment: We are dedicated to exceeding expectations through hard work, perseverance, and building long-term client relationships.`,
+      `Integrity: We prioritize honesty, transparency, and doing what is morally upright, fostering trust and creating a positive, reliable environment.`,
+      `Trust: We build strong, lasting relationships by honoring commitments, delivering quality work, and ensuring transparency.`,
+      `Communication: We value clear, timely, and open communication to foster trust, collaboration, and precision in all projects.`
+    ]
+  };
+
+  const culture = {
+    title: "Culture",
+    text: [`At LumaNation, we value our people as our greatest asset and are committed to fostering a culture of respect, collaboration, and growth. Built on integrity, innovation, and excellence, we encourage open communication and accountability to support our team's development. Balancing work and life is essential to us, fueling a shared purpose to make a positive impact within our company and beyond.`]
+  };
+
+  const projects = [
+    {
+      title: "BMW McKinney",
+      description: "This project involved the construction of a new BMW dealership by Hendrix Motorsports, located off Highway 75 in Wilmouth. The scope of work included providing power and lighting throughout the dealership and service areas, as well as installing 99 light poles to illuminate the parking lot. Additionally, electrical controls and lighting were installed for a detached car wash facility. Showroom lighting was designed to enhance the customer experience, while all HVAC units, including air conditioning and heating systems, were wired for full functionality.",
+      imageUrl: "/projects/bmw-mckinney.jpg"
     },
-    data: function () {
-      return {
-        mission: {
-          title: "Mission",
-          text: [`To be the preferred "go to" resource for our clients for all electrical service initiatives. Embodied through a collaborative relationship that is effective, efficient and continually produces the desired results. Less about the transaction, but more about understanding our business partners' needs and demands, overcoming challenges and exceeding their daily expectations.`]
-        },
-        statement: {
-          title: "Statement",
-          text: [`Here at LumaNation Commercial LLC our mission is to uphold the highest standards of quality, integrity, teamwork, and safety. We are dedicated to delivering exceptional services while maintaining unwavering commitment and support in all our interactions. Through collaboration and teamwork, we strive to exceed expectations, fostering an environment where innovation and excellence thrive. Our values form the foundation of our commitment to excellence, guiding every aspect of our operations as we work together to achieve shared success.`]
-        },
-        values: {
-          title: "Values",
-          text: [
-            `God: We view our work as a calling to reflect Christ’s love and integrity, striving for excellence to glorify Him and serve others.`,
-            `Commitment: We are dedicated to exceeding expectations through hard work, perseverance, and building long-term client relationships.`,
-            `Integrity: We prioritize honesty, transparency, and doing what is morally upright, fostering trust and creating a positive, reliable environment.`,
-            `Trust: We build strong, lasting relationships by honoring commitments, delivering quality work, and ensuring transparency.`,
-            `Communication: We value clear, timely, and open communication to foster trust, collaboration, and precision in all projects.`
-          ]
-        },
-        culture: {
-          title: "Culture",
-          text: [`At LumaNation, we value our people as our greatest asset and are committed to fostering a culture of respect, collaboration, and growth. Built on integrity, innovation, and excellence, we encourage open communication and accountability to support our team’s development. Balancing work and life is essential to us, fueling a shared purpose to make a positive impact within our company and beyond.`]
-        },
-        videoHeight: "100vh",
-        videoFullSize: true,
-        videoLeft: "0",
-        mouseScrollOpacity: "1",
-        projects: [
-          {
-            title: "BMW McKinney",
-            description: "This project involved the construction of a new BMW dealership by Hendrix Motorsports, located off Highway 75 in Wilmouth. The scope of work included providing power and lighting throughout the dealership and service areas, as well as installing 99 light poles to illuminate the parking lot. Additionally, electrical controls and lighting were installed for a detached car wash facility. Showroom lighting was designed to enhance the customer experience, while all HVAC units, including air conditioning and heating systems, were wired for full functionality.",
-            imageUrl: "/projects/bmw-mckinney.jpg"
-          },
-          {
-            title: "Wash Masters - Lynn Creek",
-            description: "Victron Group’s Grand Prairie flagship convenience store and car wash features a 6,000 sq. ft. Gateway store with Dunkin’ Donuts and Jimmy John’s, custom lighting, a beer cave, and six fuel dispensers. The adjacent 6,400 sq. ft. Wash Masters Car Wash includes a 125’ automated tunnel, 50+ motors, and ambiance lighting for its 17-vacuum stall area. LumaNation handled all lighting, power, fire alarm, low-voltage/security conduit, and complete fuel system wiring for the project.",
-            imageUrl: "/projects/washmasters.jpg"
-          },
-          {
-            title: "Haven Apartments",
-            description: "The Haven, a premier residential development in Durant, Oklahoma, spans 6.94 acres between the Choctaw Nation headquarters and Choctaw Casino & Resort. Phase One, opening in October 2024, introduces 216 modern multi-family units with amenities like a clubhouse, pool, and playground, fostering a vibrant, community-centered environment. This initial phase launches a multi-phase project enhancing residential comfort near local landmarks, making The Haven a desirable living option for individuals and families in Durant.",
-            imageUrl: "/projects/project-5.jpg"
-          },
-          {
-            title: "Goddard Princeton",
-            description: "The Goddard School daycare center in Princeton, Texas, involved the construction of a new facility with electrical power and lighting for classrooms, a gymnasium, and a kitchen, providing safe and efficient illumination for daily activities. The project also included the installation of a parking lot and exterior lighting to enhance safety and visibility for staff and parents. All electrical systems met industry standards for safety, functionality, and energy efficiency. Successful completion required careful coordination with other trades to ensure the project was finished on time and to the highest quality standards.",
-            imageUrl: "/projects/goddard-school-princeton.jpg"
-          },
-          {
-            title: "Prosper Campus",
-            description: "The project involves the expansion of One Community Church in Prosper, Texas, with the addition of a 13,000 square foot student center. The scope includes providing power, lighting, and electrical services to support the new space, ensuring adequate illumination and functionality. A new DMX-controlled theatrical lighting system will be integrated, compatible with the church's existing system. Additionally, dedicated power will be supplied for theatrical lighting equipment and other specialized setups. High-base lighting will be installed in the gymnasium, and new power and lighting will be added for an expanded parking lot to enhance safety and visibility. The project will require coordination across various trades to meet all design and functional requirements.",
-            imageUrl: "/projects/prosper-campus.png"
-          },
-          {
-            title: "Urban Garages - McKinney",
-            description: "This construction project involved the development of four commercial buildings for lease spaces in McKinney, Texas. The scope of work included installing underground infrastructure for 800-amp services and site lighting to serve four commercial units in each building. Key tasks included setting 200-amp electrical panels for each unit, running electrical piping and wiring for interior house lighting and HVAC systems, and installing light poles and exterior building lighting for enhanced visibility. Additionally, conduit was provided for low-voltage systems within each unit, and fire riser rooms were wired and terminated in each building to meet safety requirements.",
-            imageUrl: "/projects/urban-garages-mckinney.jpg"
-          }
-        ],
-        meetOurTeam: [
-          {
-            title: "Gary Dunn",
-            description: "CEO of LumaNation Commercial, has led the company to rapid growth, reaching over $8 million in revenue and solidifying its role as a top electrical contracting provider. With 25+ years of executive experience, including positions at a Fortune 5 company and in government LED manufacturing, Gary champions quality, safety, and client satisfaction. His Christian values guide his leadership, fostering trusted partnerships and innovative solutions for commercial and industrial clients.",
-            imageUrl: "/clients/gary-dunn.jpg"
-          },
-          {
-            title: "John Kingsolver",
-            description: "A fourth-generation Master Electrician with over 25 years in the trade, began in a family-owned Colorado business before advancing in telecommunications across several states. Rising from apprentice to project manager, he earned a reputation for quality, client commitment, and collaboration. Now, as Vice President of Operations at LumaNation, he brings his expertise and dedication to drive successful project outcomes.",
-            imageUrl: "/clients/john-kingsolver.jpg"
-          },
-          {
-            title: "Shane Steiger",
-            description: "A seasoned Electrical Project Manager with over 30 years of experience, excels in managing complex projects from commercial developments to industrial installations. Known for his technical expertise and leadership, he coordinates teams, meets timelines, and upholds safety and quality standards. Dedicated to client satisfaction, Shane uses advanced tools, clear communication, and a proactive approach to deliver each project on time and within budget.",
-            imageUrl: "/clients/shane-steiger.jpg"
-          },
-          {
-            title: "Jesenia Torres",
-            description: "Jesenia, an accomplished HR professional with 13 years of experience, specializes in Talent Acquisition and excels in leadership, employee relations, and strategic development. Known for her proactive problem-solving, she thrives in collaborative settings, consistently exceeding performance goals. A Top Performer at Dedicated Senior Medical Center, Jesenia is highly regarded for her leadership and strategic insight by doctors, clinical teams, and management.",
-            imageUrl: "/clients/jesenia-torres.jpg"
-          },
-          {
-            title: "Aida Rosado",
-            description: "A highly experienced and detail-oriented Senior Accountant with over 15 years of progressive expertise in accounting, financial reporting, and operational management across diverse industries. Adept at overseeing full-cycle accounting functions, including accounts payable, accounts receivable, payroll, tax filings, and bank reconciliations.",
-            imageUrl: "/clients/aida-rosado.jpg"
-          },
-          {
-            title: "Michael Speer",
-            description: "A seasoned electrical estimator with over 20 years of industry experience, specializing in accurate project estimation and effective management. Known for his leadership and expertise in the National Electric Code, he has estimated and overseen diverse commercial, residential, and industrial projects across Texas, ensuring precision, efficiency, and adherence to project budgets.",
-            imageUrl: "/clients/michael-speer.jpg"
-          }
-        ],
-        companyLogos: [
-          "/company-logos/cooper-general-contractors.webp",
-          "/company-logos/dhs.png",
-          "/company-logos/haven-durant.webp",
-
-          "/company-logos/wash-masters-car-wash.webp",
-          "/company-logos/bmw.png",
-          "/company-logos/one-community-church.png",
-
-          "/company-logos/logo.png",
-          "/company-logos/exxon-mobil.png",
-          "/company-logos/first-mckinney-baptist-church.png",
-
-          "/company-logos/logo_CaliberCarWash.png",
-          "/company-logos/ardagh-group.png",
-          "/company-logos/sms-infocomm-corporation.png",
-
-          "/company-logos/dynacraft.png",
-          "/company-logos/MEDART INC 4K LOGO web.webp",
-          "/company-logos/united-states-marine-corps.png",
-
-          "/company-logos/splash-brands.webp",
-          "/company-logos/snap-clean-car-wash.webp",
-          "/company-logos/urban-garages.webp",
-
-          "/company-logos/abg.png",
-          "/company-logos/jimmy-johns.png",
-          "/company-logos/dunkin-donuts.png"
-        ],
-        currentSlide: 0,
-        previousSlide: -1,
-        fancyboxOptions: {
-          // Carousel: {
-          //   infinite: false,
-          //   center: true,
-          //   dragFree: true
-          // },
-          // contentClick: "close",
-          // click: false,
-          // Toolbar: {
-          //   display: {
-          //     left: ["infobar"],
-          //     middle: [],
-          //     right: ["thumbs", "download", "close"]
-          //   }
-          // },
-          // Thumbs: {
-          //   showOnStart: true
-          // },
-          on: {
-            init: () => {
-              this.previousSlide = this.currentSlide;
-            },
-            shouldClose: (unused: unknown, event: Event) => {
-              if (this.previousSlide !== this.currentSlide) {
-                this.previousSlide = this.currentSlide;
-                (event).preventDefault();
-              }
-            }
-          }
-        },
-        careerPath: [
-          {
-            title: "Electrician",
-            text: "Start as an apprentice or trainee, gaining hands-on experience in basic construction tasks. Learn essential safety protocols and tools used on job sites.",
-            icon: "svgWrench"
-          },
-          {
-            title: "Lead Electrician",
-            text: "Progress to a skilled trade as an electrician or equipment operator. Continue developing technical expertise and the electrician trade, and assisting with leading projects.",
-            icon: "svgToolbox"
-          },
-          {
-            title: "Foreman",
-            text: "Move into a leadership role, overseeing teams and managing projects. Focus on safety, quality, and efficiency while mentoring less experienced workers.",
-            icon: "svgClipboard"
-          },
-          {
-            title: "Superintendent",
-            text: "Advance to project management or executive-level roles. Lead entire construction projects, from planning to completion, while managing budgets, timelines, and client relationships.",
-            icon: "svgUserTie"
-          }
-        ]
-      };
+    {
+      title: "Wash Masters - Lynn Creek",
+      description: "Victron Group’s Grand Prairie flagship convenience store and car wash features a 6,000 sq. ft. Gateway store with Dunkin’ Donuts and Jimmy John’s, custom lighting, a beer cave, and six fuel dispensers. The adjacent 6,400 sq. ft. Wash Masters Car Wash includes a 125’ automated tunnel, 50+ motors, and ambiance lighting for its 17-vacuum stall area. LumaNation handled all lighting, power, fire alarm, low-voltage/security conduit, and complete fuel system wiring for the project.",
+      imageUrl: "/projects/washmasters.jpg"
     },
-    mounted: function () {
-      this.Resize();
-      window.addEventListener("resize", this.Resize);
-      window.addEventListener("scroll", this.Scroll);
-
-      const container = document.getElementById("carousel");
-      const carouselOptions = {
-        Autoplay: {
-          showProgress: false,
-          timeout: 3000
-          // timeout: 999_999
-        },
-        dots: true,
-        infinite: true,
-        // dragFree: true,
-        slidesPerPage: 3,
-        transition: "slide",
-        on: {
-          change: (instance: { page: number; }) => {
-            this.currentSlide = instance.page;
-          }
-        }
-      };
-
-      new Carousel(container, carouselOptions, { Autoplay });
-      Fancybox.bind(container, "[data-fancybox]", this.fancyboxOptions);
+    {
+      title: "Haven Apartments",
+      description: "The Haven, a premier residential development in Durant, Oklahoma, spans 6.94 acres between the Choctaw Nation headquarters and Choctaw Casino & Resort. Phase One, opening in October 2024, introduces 216 modern multi-family units with amenities like a clubhouse, pool, and playground, fostering a vibrant, community-centered environment. This initial phase launches a multi-phase project enhancing residential comfort near local landmarks, making The Haven a desirable living option for individuals and families in Durant.",
+      imageUrl: "/projects/project-5.jpg"
     },
-    unmounted: function () {
-      window.removeEventListener("resize", this.Resize);
-      window.removeEventListener("scroll", this.Scroll);
+    {
+      title: "Goddard Princeton",
+      description: "The Goddard School daycare center in Princeton, Texas, involved the construction of a new facility with electrical power and lighting for classrooms, a gymnasium, and a kitchen, providing safe and efficient illumination for daily activities. The project also included the installation of a parking lot and exterior lighting to enhance safety and visibility for staff and parents. All electrical systems met industry standards for safety, functionality, and energy efficiency. Successful completion required careful coordination with other trades to ensure the project was finished on time and to the highest quality standards.",
+      imageUrl: "/projects/goddard-school-princeton.jpg"
     },
-    methods: {
-      Resize: function () {
-        if (window.innerWidth / 1.75 > window.innerHeight) {
-          this.videoHeight = "100vh";
-          this.videoFullSize = true;
-        } else {
-          this.videoHeight = `${window.innerWidth / 1.75}px`;
-          this.videoFullSize = false;
-        }
+    {
+      title: "Prosper Campus",
+      description: "The project involves the expansion of One Community Church in Prosper, Texas, with the addition of a 13,000 square foot student center. The scope includes providing power, lighting, and electrical services to support the new space, ensuring adequate illumination and functionality. A new DMX-controlled theatrical lighting system will be integrated, compatible with the church's existing system. Additionally, dedicated power will be supplied for theatrical lighting equipment and other specialized setups. High-base lighting will be installed in the gymnasium, and new power and lighting will be added for an expanded parking lot to enhance safety and visibility. The project will require coordination across various trades to meet all design and functional requirements.",
+      imageUrl: "/projects/prosper-campus.png"
+    },
+    {
+      title: "Urban Garages - McKinney",
+      description: "This construction project involved the development of four commercial buildings for lease spaces in McKinney, Texas. The scope of work included installing underground infrastructure for 800-amp services and site lighting to serve four commercial units in each building. Key tasks included setting 200-amp electrical panels for each unit, running electrical piping and wiring for interior house lighting and HVAC systems, and installing light poles and exterior building lighting for enhanced visibility. Additionally, conduit was provided for low-voltage systems within each unit, and fire riser rooms were wired and terminated in each building to meet safety requirements.",
+      imageUrl: "/projects/urban-garages-mckinney.jpg"
+    }
+  ];
 
-        if (window.innerWidth >= 650) {
-          this.videoLeft = `-${window.innerWidth}px`;
-        } else {
-          const newLeft = 2/5 * window.innerWidth - 960;
-          this.videoLeft = `${newLeft}px`;
-        }
+  const meetOurTeam = [
+    {
+      title: "Gary Dunn",
+      description: "CEO of LumaNation Commercial, has led the company to rapid growth, reaching over $8 million in revenue and solidifying its role as a top electrical contracting provider. With 25+ years of executive experience, including positions at a Fortune 5 company and in government LED manufacturing, Gary champions quality, safety, and client satisfaction. His Christian values guide his leadership, fostering trusted partnerships and innovative solutions for commercial and industrial clients.",
+      imageUrl: "/clients/gary-dunn.jpg"
+    },
+    {
+      title: "John Kingsolver",
+      description: "A fourth-generation Master Electrician with over 25 years in the trade, began in a family-owned Colorado business before advancing in telecommunications across several states. Rising from apprentice to project manager, he earned a reputation for quality, client commitment, and collaboration. Now, as Vice President of Operations at LumaNation, he brings his expertise and dedication to drive successful project outcomes.",
+      imageUrl: "/clients/john-kingsolver.jpg"
+    },
+    {
+      title: "Shane Steiger",
+      description: "A seasoned Electrical Project Manager with over 30 years of experience, excels in managing complex projects from commercial developments to industrial installations. Known for his technical expertise and leadership, he coordinates teams, meets timelines, and upholds safety and quality standards. Dedicated to client satisfaction, Shane uses advanced tools, clear communication, and a proactive approach to deliver each project on time and within budget.",
+      imageUrl: "/clients/shane-steiger.jpg"
+    }
+  ];
+
+  const companyLogos = [
+    "/company-logos/cooper-general-contractors.webp",
+    "/company-logos/dhs.png",
+    "/company-logos/haven-durant.webp",
+    "/company-logos/wash-masters-car-wash.webp",
+    "/company-logos/bmw.png",
+    "/company-logos/one-community-church.png",
+    "/company-logos/logo.png",
+    "/company-logos/exxon-mobil.png",
+    "/company-logos/first-mckinney-baptist-church.png",
+    "/company-logos/logo_CaliberCarWash.png",
+    "/company-logos/ardagh-group.png",
+    "/company-logos/sms-infocomm-corporation.png",
+    "/company-logos/dynacraft.png",
+    "/company-logos/MEDART INC 4K LOGO web.webp",
+    "/company-logos/united-states-marine-corps.png",
+    "/company-logos/splash-brands.webp",
+    "/company-logos/snap-clean-car-wash.webp",
+    "/company-logos/urban-garages.webp",
+    "/company-logos/abg.png",
+    "/company-logos/jimmy-johns.png",
+    "/company-logos/dunkin-donuts.png"
+  ];
+
+  const fancyboxOptions = {
+    // Carousel: {
+    //   infinite: false,
+    //   center: true,
+    //   dragFree: true
+    // },
+    // contentClick: "close",
+    // click: false,
+    // Toolbar: {
+    //   display: {
+    //     left: ["infobar"],
+    //     middle: [],
+    //     right: ["thumbs", "download", "close"]
+    //   }
+    // },
+    // Thumbs: {
+    //   showOnStart: true
+    // },
+    on: {
+      init: () => {
+        previousSlide.value = currentSlide.value;
       },
-      Scroll: function () {
-        if (window.scrollY < 200) this.mouseScrollOpacity = "1";
-        else                      this.mouseScrollOpacity = "0";
+      shouldClose: (unused: unknown, event: Event) => {
+        if (previousSlide.value !== currentSlide.value) {
+          previousSlide.value = currentSlide.value;
+          (event).preventDefault();
+        }
       }
     }
+  };
+
+  const careerPath = [
+    {
+      title: "Electrician",
+      text: "Start as an apprentice or trainee, gaining hands-on experience in basic construction tasks. Learn essential safety protocols and tools used on job sites.",
+      icon: "svgWrench"
+    },
+    {
+      title: "Lead Electrician",
+      text: "Progress to a skilled trade as an electrician or equipment operator. Continue developing technical expertise and the electrician trade, and assisting with leading projects.",
+      icon: "svgToolbox"
+    },
+    {
+      title: "Foreman",
+      text: "Move into a leadership role, overseeing teams and managing projects. Focus on safety, quality, and efficiency while mentoring less experienced workers.",
+      icon: "svgClipboard"
+    },
+    {
+      title: "Superintendent",
+      text: "Advance to project management or executive-level roles. Lead entire construction projects, from planning to completion, while managing budgets, timelines, and client relationships.",
+      icon: "svgUserTie"
+    }
+  ];
+
+  const Resize = () => {
+    if (window.innerWidth / 1.75 > window.innerHeight) {
+      videoHeight.value = "100vh";
+      videoFullSize.value = true;
+    } else {
+      videoHeight.value = `${window.innerWidth / 1.75}px`;
+      videoFullSize.value = false;
+    }
+
+    if (window.innerWidth >= 650) {
+      videoLeft.value = `-${window.innerWidth}px`;
+    } else {
+      const newLeft = 2/5 * window.innerWidth - 960;
+      videoLeft.value = `${newLeft}px`;
+    }
+  };
+
+  const Scroll = () => {
+    if (window.scrollY < 200) mouseScrollOpacity.value = "1";
+    else                      mouseScrollOpacity.value = "0";
+  };
+
+  onMounted(() => {
+    Resize();
+    window.addEventListener("resize", Resize);
+    window.addEventListener("scroll", Scroll);
+
+    // Carousel
+    const container = document.getElementById("carousel");
+    if (!container) return;
+
+    const carouselOptions = {
+      Autoplay: {
+        showProgress: false,
+        timeout: 3000
+      },
+      dots: true,
+      infinite: true,
+      // dragFree: true,
+      slidesPerPage: 3,
+      transition: "slide",
+      on: {
+        change: (instance: { page: number; }) => {
+          currentSlide.value = instance.page;
+        }
+      }
+    };
+
+    new Carousel(container, carouselOptions, { Autoplay });
+    Fancybox.bind(container, "[data-fancybox]", fancyboxOptions);
+  });
+
+  onUnmounted(() => {
+    window.removeEventListener("resize", Resize);
+    window.removeEventListener("scroll", Scroll);
   });
 </script>
 
@@ -452,7 +431,7 @@
   $--primary-3: #1c2a3e;
 
   // 2. Accent Colors:
-  $--accent-1: #fa052b;
+  $--accent-1: #253472;
   $--accent-2: #ffc300;
   $--accent-3: #2ecc71;
 
@@ -511,7 +490,7 @@
         > .top {
           > .title {
             color: $--neutral-1;
-            filter: drop-shadow(0px 0px 5px $--primary-1);
+            filter: drop-shadow(0px 0px 5px $--accent-1);
             font-size: 5rem;
             font-weight: bold;
             letter-spacing: 1px;
@@ -904,7 +883,7 @@
   }
 </style>
 
-<style lang="scss">
+<style scoped lang="scss">
   // 1. Primary Colors:
   $--primary-1: #4b4b4b;
   $--primary-2: #2c2c2c;
@@ -912,7 +891,7 @@
   $--primary-4: hsl(0 0% 90% / 1);
 
   // 2. Accent Colors:
-  $--accent-1: #fa052b;
+  $--accent-1: #253472;
   $--accent-2: #ffc300;
   $--accent-3: #2ecc71;
 

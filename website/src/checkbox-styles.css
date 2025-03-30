@@ -1,0 +1,72 @@
+/* PrimeVue Checkbox Styles */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsive layout for checkbox group */
+@media (min-width: 768px) {
+  /* On wider screens, display in a row */
+  .checkbox-group {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  
+  .checkbox-item {
+    margin-right: 2rem;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  /* On narrower screens, display in a column */
+  .checkbox-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .checkbox-item {
+    margin-right: 0;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.checkbox-label {
+  margin-left: 0.5rem;
+  font-family: "RobotoFlex", sans-serif;
+  color: #333;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* PrimeVue Checkbox styling - simplified */
+.p-checkbox .p-checkbox-box {
+  border: 1px solid #ced4da;
+  background: #ffffff;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.p-checkbox .p-checkbox-box.p-highlight {
+  border-color: #2196f3;
+  background: #2196f3;
+}
+
+.p-checkbox .p-checkbox-box.p-highlight .p-icon {
+  color: #ffffff;
+}
+
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
+  border-color: #2196f3;
+}

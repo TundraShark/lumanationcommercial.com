@@ -1,10 +1,61 @@
+1) Changes to Home Page:
+  - Add other ways to contact
+    - I'll need more specifics on this
+  - Fix navigation on bottom and top page
+    - Can I get some more information on what looks broken on the top and bottom?
+  - Add large Picture navigation on Page
+  - Small Job on Reel not desired by Gary
+    - Which part of the video reel is the small job so that I can remove it?
+  - Hyperlink to FB page, LinkedIn, X, Google, Instagram
+    - I'll need links to Facebook, LinkedIn, X, Google, and Instagram
+
+2) Careers
+  - QR code page (physical) that links to this page
+
+3) Contact Us
+  - Small form to email info@lumanationel
+    - Name
+    - Email
+    - Phone
+    - Description/question
+    - Dropdown of some options
+  - List of different contact email Groups
+  - Listed Office and Warehouse Locations with picture of location or Map ping
+  - Department contact Phone #s
+
+4) About Us
+  - Gary working on details, for selling who we are and what we do, how we like to work with others, and history.
+  - Separate large bio of each person
+  - Experience
+  - Statistics
+  - Area Served (Map?)
+  - Company positions/structure of Comm
+  - Updated news from articles in Sharepoint
+
+5) Employees
+  - Posting of 2025 Workplace Poster
+  - Current Employees section where you can click button to sign in to share point pop-up.
+  - Employee Handbook
+  - Safety
+  - Training
+  - Education Help
+  - Hours Request
+  - Check in options with Workforce
+  - Suggestion Form (MS Forms)
+  - Benefits Info
+  - Education Tools
+  - Expense Report Form (link expense email group or HR group.
+  - Company Organizational Chart
+  - Loads into Overall news page in company.
+
+
+
+
 They thought on the video at the very start, it goes right to the Wash Masters
 That image is OK, but have it go after the parnoramic
 
 Career Path: Lead Electrician
   - Progress to a skilled trade as an electrician or equipment operator. Continue developing technical expertise and the electrician trade, and assisting with leading projects.
-
-Remove the green shark fin "LandShark" logo in "Our Clients"
 
 Each project should have its own dedicated page where things go more into detail
 
@@ -15,14 +66,6 @@ Categories:
   - Schools
   - Retail
   - Office / Warehouse
-
-On a project page:
-  - Project Name
-  - Category
-  - Description of the project
-  - Address
-  - Project Budget
-  - Square Footage
 
 Page for people to apply directly onto the website, instead of being redirected to a form
 
