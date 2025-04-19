@@ -71,21 +71,29 @@
             <div class="info-group">
               <h3>Office Location</h3>
               <p><i class="fas fa-map-marker-alt"></i> 3400 Eldorado Pkwy, Suite 3, McKinney, TX 75070</p>
-              <p><i class="fas fa-phone"></i> (214) 555-1234</p>
-              <p><i class="fas fa-envelope"></i> info@lumanationel.com</p>
+              <p><i class="fas fa-envelope"></i> info@LumanationElectric.com</p>
             </div>
 
             <div class="info-group">
               <h3>Warehouse Location</h3>
               <p><i class="fas fa-map-marker-alt"></i> 1822 County Road 88, Celina, TX 75009</p>
-              <p><i class="fas fa-phone"></i> (214) 555-5678</p>
             </div>
 
             <div class="info-group">
               <h3>Department Contacts</h3>
-              <p><strong>Service:</strong> service@lumanationel.com</p>
-              <p><strong>Sales:</strong> sales@lumanationel.com</p>
-              <p><strong>HR:</strong> hr@lumanationel.com</p>
+              <p><strong>Service:</strong> service@LumanationElectric.com</p>
+              <p><strong>Sales:</strong> sales@LumanationElectric.com</p>
+              <p><strong>HR:</strong> hr@LumanationElectric.com</p>
+            </div>
+
+            <div class="info-group">
+              <h3>Phone Numbers</h3>
+              <p><strong>Main Line:</strong> (972) 528-0512</p>
+              <p><strong>Service:</strong> (972) 777-4207</p>
+              <p><strong>Business:</strong> (972) 698-5227</p>
+              <p><strong>Operations:</strong> (972) 777-4193</p>
+              <p><strong>HR:</strong> (972) 982-7307</p>
+              <p><strong>Accounting:</strong> (972) 913-2901</p>
             </div>
 
             <div class="business-hours">
@@ -110,7 +118,7 @@
     name: string;
     email: string;
     phone: string;
-    inquiryType: InquiryOption | null;
+    inquiryType: string;
     message: string;
   }
 
@@ -131,7 +139,7 @@
     name: "",
     email: "",
     phone: "",
-    inquiryType: null,
+    inquiryType: '',
     message: ""
   });
 
@@ -146,7 +154,7 @@
     contactForm.name = "";
     contactForm.email = "";
     contactForm.phone = "";
-    contactForm.inquiryType = null;
+    contactForm.inquiryType = "";
     contactForm.message = "";
   };
 </script>

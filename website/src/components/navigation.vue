@@ -167,7 +167,7 @@ export default defineComponent({
           position: absolute;
           height: 3px;
           width: 100%;
-          background: #333;
+          background: #000;
           border-radius: 9px;
           opacity: 1;
           left: 0;

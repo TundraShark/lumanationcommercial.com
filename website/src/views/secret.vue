@@ -227,7 +227,7 @@
           },
           {
             title: "John Kingsolver",
-            description: "A fourth-generation Master Electrician with over 25 years in the trade, began in a family-owned Colorado business before advancing in telecommunications across several states. Rising from apprentice to project manager, he earned a reputation for quality, client commitment, and collaboration. Now, as Vice President of Operations at LumaNation, he brings his expertise and dedication to drive successful project outcomes.",
+            description: "A fourth-generation Electrical Foreman with over 25 years in the trade, began in a family-owned Colorado business before advancing in telecommunications across several states. Rising from apprentice to project manager, he earned a reputation for quality, client commitment, and collaboration. Now, as Vice President of Operations at LumaNation, he brings his expertise and dedication to drive successful project outcomes.",
             imageUrl: "/clients/john-kingsolver.jpg"
           },
           {

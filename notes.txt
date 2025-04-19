@@ -1,3 +1,18 @@
+The "Career Path" part on the homepage is buggy
+  - Remove Career Path from homepage
+    - Keep it commented out and safe for now, since
+  - Remove Meet the Team section from homepage
+
+I can start on an "About Us" page soon
+  - History
+  - Embedded video you can click on that has either Gary going through talking about the business along with a greeting
+
+For the footer, remove all contact information and put a link "Human Resources" which then links to the Contact Us page
+
+Employees page sometime in the future
+  - Perhaps it can be something that links to Sharepoint
+  - This is private page just for employees
+
 1) Changes to Home Page:
   - Add other ways to contact
     - I'll need more specifics on this

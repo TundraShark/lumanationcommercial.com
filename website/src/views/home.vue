@@ -45,77 +45,6 @@
       <bigInfo :data="statement" />
     </div>
 
-    <div class="section">
-      <div class="title-green">Meet Our Team</div>
-
-      <div class="team-container">
-        <template v-for="(obj, i) of meetOurTeam" :key="i">
-          <div class="client">
-            <div class="portrait-container">
-              <img :src="obj.imageUrl">
-            </div>
-
-            <div class="text-container">
-              <div class="name">{{ obj.title }}</div>
-              <div class="bio">{{ obj.description }}</div>
-            </div>
-          </div>
-        </template>
-      </div>
-    </div>
-
-    <div class="section-2">
-      <bigInfo :data="values" />
-    </div>
-
-    <div class="section">
-      <div class="title-green">Career Path</div>
-
-      <div class="career-path-container desktop">
-        <Timeline :value="careerPath" align="alternate" class="customized-timeline">
-          <template #opposite="slotProps">
-            <div class="card">
-              <div class="title">{{ slotProps.item.title }}</div>
-              <div class="divider" />
-              <div class="text">{{ slotProps.item.text }}</div>
-            </div>
-          </template>
-          <template #marker="slotProps">
-            <div class="icon">
-              <component :is="slotProps.item.icon" />
-            </div>
-            <div v-if="slotProps.index + 1 === careerPath.length" class="p-timeline-event-connector final" />
-          </template>
-        </Timeline>
-      </div>
-
-      <div class="career-path-container mobile">
-        <Timeline :value="careerPath" align="left" class="customized-timeline">
-          <template #opposite="slotProps">
-            <div class="card">
-              <div class="title">{{ slotProps.item.title }}</div>
-              <div class="divider" />
-              <div class="text">{{ slotProps.item.text }}</div>
-            </div>
-          </template>
-          <template #marker="slotProps">
-            <div class="icon">
-              <component :is="slotProps.item.icon" />
-            </div>
-            <div v-if="slotProps.index + 1 === careerPath.length" class="p-timeline-event-connector final" />
-          </template>
-        </Timeline>
-      </div>
-    </div>
-
-    <div class="section-2">
-      <div class="title-green-neon">We're always hiring!</div>
-
-      <a href="https://forms.monday.com/forms/2508cf20417e001e8c04ec60a52e4945" target="_blank">
-        <div class="button-1">Check Open Positions</div>
-      </a>
-    </div>
-
     <div class="section-carousel">
       <div class="title-green">Our Clients</div>
 
@@ -128,6 +57,40 @@
           </template>
         </div>
       </div>
+    </div>
+
+    <!-- We may or may not use this section later, so keep it commented out for now -->
+    <!--
+      <div class="section">
+        <div class="title-green">Meet Our Team</div>
+
+        <div class="team-container">
+          <template v-for="(obj, i) of meetOurTeam" :key="i">
+            <div class="client">
+              <div class="portrait-container">
+                <img :src="obj.imageUrl">
+              </div>
+
+              <div class="text-container">
+                <div class="name">{{ obj.title }}</div>
+                <div class="bio">{{ obj.description }}</div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    -->
+
+    <div class="section-2">
+      <bigInfo :data="values" />
+    </div>
+
+    <div class="section">
+      <div class="title-green">We're always hiring!</div>
+
+      <a href="https://forms.monday.com/forms/2508cf20417e001e8c04ec60a52e4945" target="_blank">
+        <div class="button-1">Check Open Positions</div>
+      </a>
     </div>
   </div>
 </template>
@@ -223,7 +186,7 @@
     },
     {
       title: "John Kingsolver",
-      description: "A fourth-generation Master Electrician with over 25 years in the trade, began in a family-owned Colorado business before advancing in telecommunications across several states. Rising from apprentice to project manager, he earned a reputation for quality, client commitment, and collaboration. Now, as Vice President of Operations at LumaNation, he brings his expertise and dedication to drive successful project outcomes.",
+      description: "A fourth-generation Electrical Foreman with over 25 years in the trade, began in a family-owned Colorado business before advancing in telecommunications across several states. Rising from apprentice to project manager, he earned a reputation for quality, client commitment, and collaboration. Now, as Vice President of Operations at LumaNation, he brings his expertise and dedication to drive successful project outcomes.",
       imageUrl: "/clients/john-kingsolver.jpg"
     },
     {
@@ -1108,7 +1071,7 @@
           width: 300px;
           height: 200px;
           object-fit: cover;
-          border-bottom: 2px solid $--accent-3;
+          border-bottom: 2px solid $--accent-2;
           border-radius: 8px 8px 0 0;
         }
       }
@@ -1120,7 +1083,7 @@
         font-size: 1.5rem;
         font-weight: bold;
         font-family: "Oswald";
-        color: $--accent-3;
+        color: $--accent-2;
       }
 
       > .description {

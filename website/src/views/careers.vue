@@ -60,6 +60,49 @@
         </div>
       </section>
 
+      <!-- We may or may not use this section later, so keep it commented out for now -->
+      <!--
+        <div class="section">
+          <div class="title-green">Career Path</div>
+
+          <div class="career-path-container desktop">
+            <Timeline :value="careerPath" align="alternate" class="customized-timeline">
+              <template #opposite="slotProps">
+                <div class="card">
+                  <div class="title">{{ slotProps.item.title }}</div>
+                  <div class="divider" />
+                  <div class="text">{{ slotProps.item.text }}</div>
+                </div>
+              </template>
+              <template #marker="slotProps">
+                <div class="icon">
+                  <component :is="slotProps.item.icon" />
+                </div>
+                <div v-if="slotProps.index + 1 === careerPath.length" class="p-timeline-event-connector final" />
+              </template>
+            </Timeline>
+          </div>
+
+          <div class="career-path-container mobile">
+            <Timeline :value="careerPath" align="left" class="customized-timeline">
+              <template #opposite="slotProps">
+                <div class="card">
+                  <div class="title">{{ slotProps.item.title }}</div>
+                  <div class="divider" />
+                  <div class="text">{{ slotProps.item.text }}</div>
+                </div>
+              </template>
+              <template #marker="slotProps">
+                <div class="icon">
+                  <component :is="slotProps.item.icon" />
+                </div>
+                <div v-if="slotProps.index + 1 === careerPath.length" class="p-timeline-event-connector final" />
+              </template>
+            </Timeline>
+          </div>
+        </div>
+      -->
+
       <!-- Job Listings Section -->
       <section class="job-listings">
         <h2>Current Openings</h2>
@@ -175,11 +218,11 @@
   // Job listings data
   const jobs = [
     {
-      title: "Master Electrician",
+      title: "Electrical Foreman",
       location: "Dallas, TX",
-      description: "We are seeking a licensed Master Electrician to join our team. The ideal candidate will have extensive experience in commercial electrical installations and be able to lead projects from start to finish.",
+      description: "We are seeking a licensed Electrical Foreman to join our team. The ideal candidate will have extensive experience in commercial electrical installations and be able to lead projects from start to finish.",
       requirements: [
-        "Valid Master Electrician license",
+        "Valid Electrical Foreman license",
         "Minimum 10 years of experience in commercial electrical work",
         "Strong knowledge of NEC and local electrical codes",
         "Ability to read and interpret blueprints and schematics",
@@ -224,7 +267,7 @@
         "Ability to work in various weather conditions"
       ],
       responsibilities: [
-        "Assist Journeyman and Master Electricians with installations",
+        "Assist Journeyman and Electrical Foremans with installations",
         "Learn to read blueprints and schematics",
         "Help with material handling and job site preparation",
         "Attend required training and education programs",

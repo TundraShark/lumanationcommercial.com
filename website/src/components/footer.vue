@@ -33,7 +33,7 @@
       </div>
 
       <div class="footer-section contact-info">
-        <div class="section-title">FAQ/Contact Us</div>
+        <div class="section-title">Contact Us</div>
         <div class="expand">
           <div class="object-container-2">
             <div class="top">
@@ -80,22 +80,6 @@
           <div class="phone-item">
             <div class="phone-label">Service</div>
             <div class="phone-number">(972) 777-4207</div>
-          </div>
-          <div class="phone-item">
-            <div class="phone-label">Business Development</div>
-            <div class="phone-number">(972) 698-5227</div>
-          </div>
-          <div class="phone-item">
-            <div class="phone-label">Operations</div>
-            <div class="phone-number">(972) 777-4193</div>
-          </div>
-          <div class="phone-item">
-            <div class="phone-label">Human Resources</div>
-            <div class="phone-number">(972) 982-7307</div>
-          </div>
-          <div class="phone-item">
-            <div class="phone-label">Accounting</div>
-            <div class="phone-number">(972) 913-2901</div>
           </div>
         </div>
       </div>
