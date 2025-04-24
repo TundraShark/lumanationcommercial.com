@@ -26,7 +26,7 @@
     </div>
 
     <div class="section">
-      <div class="title-green">Recent Projects</div>
+      <div class="title-green-neon">Recent Projects</div>
 
       <div class="projects-container">
         <template v-for="(obj, i) of projects" :key="i">
@@ -46,7 +46,7 @@
     </div>
 
     <div class="section-carousel">
-      <div class="title-green">Our Clients</div>
+      <div class="title-green-neon">Our Clients</div>
 
       <div id="gallery-carousel-container">
         <div id="carousel" class="f-carousel">
@@ -62,7 +62,7 @@
     <!-- We may or may not use this section later, so keep it commented out for now -->
     <!--
       <div class="section">
-        <div class="title-green">Meet Our Team</div>
+        <div class="title-green-neon">Meet Our Team</div>
 
         <div class="team-container">
           <template v-for="(obj, i) of meetOurTeam" :key="i">
@@ -86,7 +86,7 @@
     </div>
 
     <div class="section">
-      <div class="title-green">We're always hiring!</div>
+      <div class="title-green-neon">We're always hiring!</div>
 
       <a href="https://forms.monday.com/forms/2508cf20417e001e8c04ec60a52e4945" target="_blank">
         <div class="button-1">Check Open Positions</div>
