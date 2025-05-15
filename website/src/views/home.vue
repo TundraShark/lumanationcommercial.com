@@ -26,7 +26,7 @@
     </div>
 
     <div class="section">
-      <div class="title-green">Recent Projects</div>
+      <div class="glowing-green-title">Recent Projects</div>
 
       <div class="projects-container">
         <template v-for="(obj, i) of projects" :key="i">
@@ -46,7 +46,7 @@
     </div>
 
     <div class="section-carousel">
-      <div class="title-green">Our Clients</div>
+      <div class="glowing-green-title">Our Clients</div>
 
       <div id="gallery-carousel-container">
         <div id="carousel" class="f-carousel">
@@ -86,11 +86,11 @@
     </div>
 
     <div class="section">
-      <div class="title-green">We're always hiring!</div>
+      <div class="glowing-green-title">We're always hiring!</div>
 
-      <a href="https://forms.monday.com/forms/2508cf20417e001e8c04ec60a52e4945" target="_blank">
+      <router-link to="/careers">
         <div class="button-1">Check Open Positions</div>
-      </a>
+      </router-link>
     </div>
   </div>
 </template>

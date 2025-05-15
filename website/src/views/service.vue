@@ -1,17 +1,20 @@
 <template>
   <div class="services">
     <div class="hero-banner">
-      <div class="overlay">
+      <div class="overlay" />
+    </div>
+
+    <div class="form-container" style="padding-bottom: 0;">
+      <div class="form-header">
         <div class="container">
-          <!-- <h1>PLACEHOLDER</h1> -->
           <p>We are a full service electrical contracting company, offering competitive rates for new construction, service, maintenance, and repair, offering rapid response times by our reliable and knowledgeable electricians. Contact us today for any of your electrical needs.</p>
         </div>
       </div>
     </div>
 
-    <div class="form-container">
+    <div class="form-container" style="padding-top: 0;">
       <div class="form-header">
-        <h2>Request Service</h2>
+        <h2 class="section-heading">Send Us a Message</h2>
         <p>Fill out the form below to request service or schedule maintenance for your facility</p>
       </div>
       <div class="container">
@@ -22,7 +25,7 @@
     <div class="content">
       <div class="container">
         <div class="service-intro">
-          <h2>Dedicated to Your Service Needs</h2>
+          <h2 class="section-heading">Dedicated to Your Service Needs</h2>
           <p>At Lumanation Commercial, we understand that electrical issues don't follow a 9-to-5 schedule. That's why our expert service team is available around the clock to handle all your commercial electrical service and maintenance needs. From emergency repairs to preventative maintenance, we're committed to keeping your business running smoothly.</p>
         </div>
 
@@ -52,8 +55,11 @@
           </div>
         </div>
 
-        <div class="steps-process">
-          <h2>Three steps, one goal</h2>
+        <div class="steps-process" style="display: flex; flex-direction: column;">
+          <div style="display: flex; justify-content: center">
+            <h2 class="section-heading">Three Steps - One Goal</h2>
+          </div>
+
           <div class="steps-container">
             <div class="step-item">
               <div class="step-number-container">
@@ -88,34 +94,37 @@
         </div>
 
         <div class="service-offerings">
-          <h2>Our Service Offerings</h2>
+          <div style="display: flex; justify-content: center">
+            <h2 class="section-heading">Our Service Offerings</h2>
+          </div>
+
           <div class="offerings-grid">
-            <div class="offering-item">
+            <div class="offering-item" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=800&q=80') center/cover;">
               <h4>Electrical Troubleshooting & Repair</h4>
               <p>Quick diagnosis and repair of electrical issues to minimize downtime for your business.</p>
             </div>
 
-            <div class="offering-item">
+            <div class="offering-item" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=80') center/cover;">
               <h4>Lighting Maintenance & Upgrades</h4>
-              <p>Maintenance, repair, and energy-efficient upgrades for all commercial lighting systems.</p>
+              <p>Regular maintenance and upgrades of lighting systems to improve efficiency and reduce energy costs.</p>
             </div>
 
-            <div class="offering-item">
+            <div class="offering-item" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1599619585752-c3edb42a414c?auto=format&fit=crop&w=800&q=80') center/cover;">
               <h4>Panel Upgrades & Replacements</h4>
-              <p>Modernization of electrical panels to meet current codes and business demands.</p>
+              <p>Modernization of electrical panels to meet current safety standards and power demands.</p>
             </div>
 
-            <div class="offering-item">
+            <div class="offering-item" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=800&q=80') center/cover;">
               <h4>Power Quality Analysis</h4>
-              <p>Comprehensive testing and solutions for power quality issues affecting your equipment.</p>
+              <p>Comprehensive analysis of power systems to identify and resolve issues affecting equipment performance.</p>
             </div>
 
-            <div class="offering-item">
+            <div class="offering-item" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=800&q=80') center/cover;">
               <h4>EV Charging Stations</h4>
-              <p>LumaNation Electric is here to power up your electric vehicle charging needs. Our team of licensed and state-certified electricians is equipped to deliver high-quality installation services for your EV charging stations.</p>
+              <p>Installation and maintenance of electric vehicle charging stations for your facility.</p>
             </div>
 
-            <div class="offering-item">
+            <div class="offering-item" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80') center/cover;">
               <h4>Generator Service & Testing</h4>
               <p>Maintenance and testing of backup power systems to ensure reliability when needed.</p>
             </div>
@@ -123,7 +132,10 @@
         </div>
 
         <div class="service-commitment">
-          <h2>Our Commitment to Excellence</h2>
+          <div style="display: flex; justify-content: center">
+            <h2 class="section-heading">Our Commitment to Excellence</h2>
+          </div>
+
           <p>On every project, Lumanation's Service Team commits to providing the highest level of workmanship and exceptional customer service. We strive for excellence through innovation, quality focus, and attention to detail. Our commitment to our clients has resulted in an exceptional customer retention rate—nearly 100% of our new customers become repeat customers.</p>
 
           <div class="testimonials">
@@ -195,6 +207,8 @@
 </script>
 
 <style scoped lang="scss">
+  @import "@/style.scss";
+
   .services {
     display: flex;
     flex-direction: column;
@@ -464,25 +478,44 @@
           gap: 30px;
 
           .offering-item {
-            background-color: #f9f9f9;
-            padding: 25px;
-            border-radius: 5px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            flex: 0 0 calc(33.333% - 30px);
+            margin-bottom: 40px;
+            text-align: center;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            color: #ffffff;
+
+            h4 {
+              text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+              position: relative;
+              z-index: 1;
+            }
+
+            p {
+              text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+              position: relative;
+              z-index: 1;
+            }
 
             &:hover {
               transform: translateY(-5px);
+              box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
             }
 
             h4 {
               font-size: 1.3rem;
               margin-bottom: 15px;
-              color: #253472;
+              color: #ffffff;
+              font-weight: 600;
             }
 
             p {
               font-size: 1rem;
-              color: #666;
+              color: rgba(255, 255, 255, 0.9);
               line-height: 1.5;
             }
           }
@@ -586,6 +619,26 @@
     .services .content .service-offerings h2,
     .services .content .service-commitment h2 {
       font-size: 2rem;
+    }
+  }
+
+  .section-heading {
+    font-size: 2rem;
+    color: $--primary-3;
+    margin-bottom: 0.5rem;
+    font-family: "Oswald";
+    position: relative;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: $--accent-3;
     }
   }
 </style>
